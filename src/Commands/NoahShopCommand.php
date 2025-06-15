@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Sharenjoy\NoahShop\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class NoahShopCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'noah-shop';
 
     public $description = 'My command';
 
