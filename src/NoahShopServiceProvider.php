@@ -17,9 +17,16 @@ class NoahShopServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('noah-shop')
-            ->hasConfigFile()
+            ->hasRoute('web')
+            ->hasConfigFile([
+                'noah-shop',
+            ])
             ->hasViews()
-            ->hasMigration('create_noah_shop_table')
-            ->hasCommand(NoahShopCommand::class);
+            ->hasTranslations()
+            ->discoversMigrations()
+            ->hasAssets()
+            ->hasCommands([
+                NoahShopCommand::class,
+            ]);
     }
 }
