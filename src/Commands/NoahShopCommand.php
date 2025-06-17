@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class NoahShopCommand extends Command
 {
-    public $signature = 'noah-shop';
+    public $signature = 'noah-shop:test-command';
 
     public $description = 'My command';
 

@@ -2,9 +2,12 @@
 
 namespace Sharenjoy\NoahShop;
 
+use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Support\Facades\Schedule;
+use Sharenjoy\NoahShop\Commands\NoahShopCommand;
+use Sharenjoy\NoahShop\Http\View\Composers\Survey\SurveyComposer;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Sharenjoy\NoahShop\Commands\NoahShopCommand;
 
 class NoahShopServiceProvider extends PackageServiceProvider
 {
@@ -28,5 +31,17 @@ class NoahShopServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 NoahShopCommand::class,
             ]);
+    }
+
+    public function bootingPackage()
+    {
+        app()->make(ViewFactory::class)->composer('noah-cms::standard', SurveyComposer::class);
+    }
+
+    public function packageBooted()
+    {
+        \Illuminate\Database\Eloquent\Model::unguard();
+
+        Schedule::command('noah-shop:test-command')->dailyAt('00:30');
     }
 }
