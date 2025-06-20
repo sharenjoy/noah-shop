@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Sharenjoy\NoahCms\Enums\PromoAutoGenerateType;
-use Sharenjoy\NoahCms\Models\Promo;
+use Sharenjoy\NoahShop\Enums\PromoAutoGenerateType;
+use Sharenjoy\NoahShop\Models\Promo;
 use Spatie\Translatable\HasTranslations;
 
 return new class extends Migration

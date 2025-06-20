@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Sharenjoy\NoahCms\Models\Survey\Survey;
+use Sharenjoy\NoahShop\Models\Survey\Survey;
 use Spatie\Translatable\HasTranslations;
 
 class CreateSurveysTable extends Migration
