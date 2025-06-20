@@ -1,6 +1,6 @@
 <?php
 
-namespace Sharenjoy\NoahCms\Database\Factories\Survey;
+namespace Sharenjoy\NoahShop\Database\Factories\Survey;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Sharenjoy\NoahCms\Models\Survey\Survey;

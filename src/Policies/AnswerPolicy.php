@@ -2,9 +2,10 @@
 
 namespace Sharenjoy\NoahShop\Policies;
 
-use Sharenjoy\NoahCms\Models\User;
-use Sharenjoy\NoahShop\Models\Survey\Answer;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Sharenjoy\NoahCms\Models\BaseUser;
+use Sharenjoy\NoahShop\Models\Survey\Answer;
+use Sharenjoy\NoahShop\Models\User;
 
 class AnswerPolicy
 {
@@ -13,7 +14,7 @@ class AnswerPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(BaseUser $user): bool
     {
         return $user->can('view_any_survey::answer');
     }

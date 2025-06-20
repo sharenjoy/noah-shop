@@ -2,7 +2,7 @@
 
 namespace Sharenjoy\NoahShop\Policies;
 
-use Sharenjoy\NoahCms\Models\User;
+use Sharenjoy\NoahShop\Models\User;
 use Sharenjoy\NoahShop\Models\Survey\Survey;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

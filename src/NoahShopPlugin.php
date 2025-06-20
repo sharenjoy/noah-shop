@@ -4,7 +4,6 @@ namespace Sharenjoy\NoahShop;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Sharenjoy\NoahShop\Resources;
 
 class NoahShopPlugin implements Plugin
 {
