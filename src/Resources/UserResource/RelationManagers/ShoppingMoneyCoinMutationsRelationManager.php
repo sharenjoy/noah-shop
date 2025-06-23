@@ -8,8 +8,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-use Sharenjoy\NoahShop\Actions\Shop\RoleCan;
-use Sharenjoy\NoahShop\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahShop\Enums\CoinType;
 use Sharenjoy\NoahShop\Models\CoinMutation;
 use Sharenjoy\NoahShop\Models\User;
@@ -34,12 +34,12 @@ class ShoppingMoneyCoinMutationsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.user_shoppingmoney_record');
+        return __('noah-shop::noah-shop.user_shoppingmoney_record');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.user_shoppingmoney_record');
+        return __('noah-shop::noah-shop.user_shoppingmoney_record');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -57,7 +57,7 @@ class ShoppingMoneyCoinMutationsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->heading(__('noah-cms::noah-cms.user_shoppingmoney_record'))
+            ->heading(__('noah-shop::noah-shop.user_shoppingmoney_record'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(CoinMutation::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(CoinMutation::class))
             ->searchable(false)

@@ -31,6 +31,16 @@ Update auth.php in config folder
 ],
 ```
 
+```
+Uncomment all //** NoahShop CAN OPEN lines in NoahPanelProvider.php
+```
+
+You need publish the config file with:
+
+```bash
+php artisan vendor:publish --tag="noah-shop-config"
+```
+
 You can publish migrations and run migrate and other database related:
 
 ```bash
@@ -39,6 +49,10 @@ php artisan vendor:publish --tag="noah-shop-migrations"
 
 ```bash
 php artisan migrate
+```
+
+```bash
+php artisan shield:super-admin
 ```
 
 ```bash
@@ -55,12 +69,6 @@ You can publish the assets using
 
 ```bash
 php artisan vendor:publish --tag="noah-shop-assets"
-```
-
-You need publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="noah-shop-config"
 ```
 
 Optionally, you can publish the views using

@@ -8,7 +8,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Sharenjoy\NoahCms\Models\OrderShipment;
+use Sharenjoy\NoahShop\Models\OrderShipment;
 
 class OrderShipmentsRelationManager extends RelationManager
 {
@@ -18,12 +18,12 @@ class OrderShipmentsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.order_shipment');
+        return __('noah-shop::noah-shop.order_shipment');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.order_shipment');
+        return __('noah-shop::noah-shop.order_shipment');
     }
 
     public static function getEloquentQuery(): Builder
@@ -41,7 +41,7 @@ class OrderShipmentsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->heading(__('noah-cms::noah-cms.order_shipment'))
+            ->heading(__('noah-shop::noah-shop.order_shipment'))
             ->searchable(false)
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(OrderShipment::class))
             // ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(OrderShipment::class, Role::class))

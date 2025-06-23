@@ -26,12 +26,12 @@ class ProductSpecificationsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.specification');
+        return __('noah-shop::noah-shop.specification');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.specification');
+        return __('noah-shop::noah-shop.specification');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -58,7 +58,7 @@ class ProductSpecificationsRelationManager extends RelationManager
                         StoreRecordBackToProductSpecs::run($data['spec_detail_name'], $this->getOwnerRecord(), 'create');
                     } catch (\Exception $e) {
                         Notification::make()
-                            ->title(__('noah-cms::noah-cms.error'))
+                            ->title(__('noah-shop::noah-shop.error'))
                             ->body($e->getMessage())
                             ->danger()
                             ->send();
@@ -72,7 +72,7 @@ class ProductSpecificationsRelationManager extends RelationManager
 
         return $table
             ->recordTitle(fn(ProductSpecification $record): string => "({$record->id}) {$record->no}")
-            ->heading(__('noah-cms::noah-cms.specification'))
+            ->heading(__('noah-shop::noah-shop.specification'))
             ->columns(array_merge(static::getTableStartColumns(ProductSpecificationResource::class), \Sharenjoy\NoahCms\Utils\Table::make(ProductSpecification::class)))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(ProductSpecification::class))
             ->headerActions($headerActions)
@@ -87,7 +87,7 @@ class ProductSpecificationsRelationManager extends RelationManager
                             StoreRecordBackToProductSpecs::run($data['spec_detail_name'] ?? [], $this->getOwnerRecord(), 'edit', $record);
                         } catch (\Exception $e) {
                             Notification::make()
-                                ->title(__('noah-cms::noah-cms.error'))
+                                ->title(__('noah-shop::noah-shop.error'))
                                 ->body($e->getMessage())
                                 ->danger()
                                 ->send();
@@ -109,7 +109,7 @@ class ProductSpecificationsRelationManager extends RelationManager
             ->reorderRecordsTriggerAction(
                 fn(Action $action, bool $isReordering) => $action
                     ->button()
-                    ->label($isReordering ? __('noah-cms::noah-cms.reordering_completed') : __('noah-cms::noah-cms.start_reordering')),
+                    ->label($isReordering ? __('noah-shop::noah-shop.reordering_completed') : __('noah-shop::noah-shop.start_reordering')),
             );
     }
 }

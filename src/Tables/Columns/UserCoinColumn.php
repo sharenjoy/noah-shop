@@ -6,5 +6,5 @@ use Filament\Tables\Columns\TextColumn;
 
 class UserCoinColumn extends TextColumn
 {
-    protected string $view = 'noah-cms::tables.columns.user-coin';
+    protected string $view = 'noah-shop::tables.columns.user-coin';
 }

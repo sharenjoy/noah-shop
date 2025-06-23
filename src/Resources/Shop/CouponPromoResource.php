@@ -35,7 +35,7 @@ class CouponPromoResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.coupon_promo');
+        return __('noah-shop::noah-shop.coupon_promo');
     }
 
     public static function getEloquentQuery(): Builder
@@ -80,8 +80,8 @@ class CouponPromoResource extends Resource implements HasShieldPermissions
                         ->label(__('noah-shop::noah-shop.shop.promo.title.auto_assign_to_user'))
                         ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.auto_assign_to_user')))
                         ->options([
-                            true => __('noah-cms::noah-cms.yes'),
-                            false => __('noah-cms::noah-cms.no'),
+                            true => __('noah-shop::noah-shop.yes'),
+                            false => __('noah-shop::noah-shop.no'),
                         ])
                         ->default(false)
                         ->inline()

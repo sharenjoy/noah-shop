@@ -29,12 +29,12 @@ class ProductResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getEloquentQuery(): Builder
@@ -58,7 +58,7 @@ class ProductResource extends Resource implements HasShieldPermissions
                 Filter::make('brands')
                     ->form([
                         Select::make('brands')
-                            ->label(__('noah-cms::noah-cms.brand'))
+                            ->label(__('noah-shop::noah-shop.brand'))
                             ->options(Brand::all()->pluck('title', 'id'))
                             ->prefixIcon('heroicon-o-lifebuoy')
                             ->multiple()
@@ -71,7 +71,7 @@ class ProductResource extends Resource implements HasShieldPermissions
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['brands'] ?? null) {
-                            return __('noah-cms::noah-cms.brand') . ': ' . implode(', ', Brand::whereIn('id', $data['brands'])->get()->pluck('title')->toArray());
+                            return __('noah-shop::noah-shop.brand') . ': ' . implode(', ', Brand::whereIn('id', $data['brands'])->get()->pluck('title')->toArray());
                         }
 
                         return null;
@@ -85,7 +85,7 @@ class ProductResource extends Resource implements HasShieldPermissions
                 Tables\Actions\BulkActionGroup::make(array_merge(static::getBulkActions(), [])),
             ])
             ->groups([
-                Group::make('brand_id')->label(__('noah-cms::noah-cms.brand'))->getTitleFromRecordUsing(fn($record): string => $record->brand->title)->collapsible(),
+                Group::make('brand_id')->label(__('noah-shop::noah-shop.brand'))->getTitleFromRecordUsing(fn($record): string => $record->brand->title)->collapsible(),
             ])
             ->reorderable(false);
     }

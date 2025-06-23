@@ -56,12 +56,12 @@ class Transaction extends Model
     {
         return [
             'provider' => TextColumn::make('provider')
-                ->label(__('noah-cms::noah-cms.activity.label.provider'))
+                ->label(__('noah-shop::noah-shop.activity.label.provider'))
                 ->sortable()
                 ->searchable()
                 ->badge(PaymentProvider::class),
             'payment_method' => TextColumn::make('payment_method')
-                ->label(__('noah-cms::noah-cms.activity.label.payment_method'))
+                ->label(__('noah-shop::noah-shop.activity.label.payment_method'))
                 ->sortable()
                 ->searchable()
                 ->badge(PaymentMethod::class),

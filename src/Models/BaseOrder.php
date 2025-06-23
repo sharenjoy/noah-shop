@@ -60,7 +60,7 @@ class BaseOrder extends Model
     {
         return [
             'notes' => \Filament\Tables\Columns\IconColumn::make('notes')
-                ->label(__('noah-cms::noah-cms.order_notes'))
+                ->label(__('noah-shop::noah-shop.order_notes'))
                 ->tooltip(fn($state) => $state)
                 ->width('1%')
                 ->alignCenter()
@@ -74,7 +74,7 @@ class BaseOrder extends Model
                 ->counts('items')
                 ->badge()
                 ->color('gray')
-                ->label(__('noah-cms::noah-cms.order_item_counts'))
+                ->label(__('noah-shop::noah-shop.order_item_counts'))
                 ->tooltip('點擊可快速查看品項')
                 ->sortable()
                 ->action($this->viewOrderItemsAction()),

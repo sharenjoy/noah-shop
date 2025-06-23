@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use RalphJSmit\Filament\Activitylog\Tables\Actions\TimelineAction;
-use Sharenjoy\NoahShop\Actions\Shop\RoleCan;
+use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
 use Sharenjoy\NoahShop\Enums\UserLevelStatus as UserLevelStatusEnum;
 use Sharenjoy\NoahShop\Models\User;
 use Sharenjoy\NoahShop\Models\UserLevelStatus;
@@ -27,12 +27,12 @@ class UserLevelStatusesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.user_level_status');
+        return __('noah-shop::noah-shop.user_level_status');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.user_level_status');
+        return __('noah-shop::noah-shop.user_level_status');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -51,7 +51,7 @@ class UserLevelStatusesRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(UserLevelStatus $record): string => "({$record->id}) {$record->title}")
-            ->heading(__('noah-cms::noah-cms.user_level_status'))
+            ->heading(__('noah-shop::noah-shop.user_level_status'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(UserLevelStatus::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(UserLevelStatus::class, User::class))
             ->headerActions([

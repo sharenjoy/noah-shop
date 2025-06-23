@@ -33,12 +33,12 @@ class UserLevelResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.promo');
+        return __('noah-shop::noah-shop.promo');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.user_level');
+        return __('noah-shop::noah-shop.user_level');
     }
 
     public static function form(Form $form): Form
@@ -79,8 +79,8 @@ class UserLevelResource extends Resource implements HasShieldPermissions
                             ->label(__('noah-shop::noah-shop.shop.promo.title.auto_level_up'))
                             ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.auto_level_up')))
                             ->options([
-                                true => __('noah-cms::noah-cms.yes'),
-                                false => __('noah-cms::noah-cms.no'),
+                                true => __('noah-shop::noah-shop.yes'),
+                                false => __('noah-shop::noah-shop.no'),
                             ])
                             ->default(false)
                             ->inline()
@@ -89,8 +89,8 @@ class UserLevelResource extends Resource implements HasShieldPermissions
                             ->label(__('noah-shop::noah-shop.shop.promo.title.forever'))
                             ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.userlevel_forever')))
                             ->options([
-                                true => __('noah-cms::noah-cms.yes'),
-                                false => __('noah-cms::noah-cms.no'),
+                                true => __('noah-shop::noah-shop.yes'),
+                                false => __('noah-shop::noah-shop.no'),
                             ])
                             ->default(false)
                             ->inline()

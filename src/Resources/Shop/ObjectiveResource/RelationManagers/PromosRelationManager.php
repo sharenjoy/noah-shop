@@ -17,12 +17,12 @@ class PromosRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.promo');
+        return __('noah-shop::noah-shop.promo');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.promo');
+        return __('noah-shop::noah-shop.promo');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -41,7 +41,7 @@ class PromosRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(Promo $record): string => "({$record->id}) {$record->title}")
-            ->heading(__('noah-cms::noah-cms.promo'))
+            ->heading(__('noah-shop::noah-shop.promo'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(Promo::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(Promo::class))
             ->headerActions([

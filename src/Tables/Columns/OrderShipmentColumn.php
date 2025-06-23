@@ -6,5 +6,5 @@ use Filament\Tables\Columns\TextColumn;
 
 class OrderShipmentColumn extends TextColumn
 {
-    protected string $view = 'noah-cms::tables.columns.order-shipment';
+    protected string $view = 'noah-shop::tables.columns.order-shipment';
 }

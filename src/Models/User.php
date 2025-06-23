@@ -28,8 +28,8 @@ use Sharenjoy\NoahCms\Models\Role;
 use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
 use Sharenjoy\NoahCms\Models\Traits\HasTags;
 use Sharenjoy\NoahShop\Actions\Shop\FetchCountryRelatedSelectOptions;
-use Sharenjoy\NoahShop\Actions\Shop\RoleCan;
-use Sharenjoy\NoahShop\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahShop\Enums\ObjectiveType;
 use Sharenjoy\NoahShop\Enums\UserLevelStatus as EnumsUserLevelStatus;
 use Sharenjoy\NoahShop\Models\Address;
@@ -137,8 +137,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
             'left' => [
                 'user_level_id' => Section::make()->schema([
                     Select::make('user_level_id')
-                        ->label(__('noah-cms::noah-cms.user_level'))
-                        ->helperText(new HtmlString(__('noah-cms::noah-cms.super_admin_only')))
+                        ->label(__('noah-shop::noah-shop.user_level'))
+                        ->helperText(new HtmlString(__('noah-shop::noah-shop.super_admin_only')))
                         ->relationship('userLevel', 'title')
                         // ->searchable()
                         ->required()
@@ -156,7 +156,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
                 ],
                 'password' => Section::make()->schema([
                     TextInput::make('password')
-                        ->label(__('noah-cms::noah-cms.password'))
+                        ->label(__('noah-shop::noah-shop.password'))
                         ->placeholder('********')
                         ->password()
                         ->dehydrated(fn($state) => !empty($state))
@@ -167,11 +167,11 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
                     ->columns(2)
                     ->schema([
                         Select::make('calling_code')
-                            ->label(__('noah-cms::noah-cms.activity.label.calling_code'))
+                            ->label(__('noah-shop::noah-shop.activity.label.calling_code'))
                             ->options(FetchCountryRelatedSelectOptions::run('calling_code'))
                             ->searchable()
                             ->required(),
-                        TextInput::make('mobile')->placeholder('0912345678')->label(__('noah-cms::noah-cms.activity.label.mobile'))->required(),
+                        TextInput::make('mobile')->placeholder('0912345678')->label(__('noah-shop::noah-shop.activity.label.mobile'))->required(),
                     ]),
             ],
             'right' => [

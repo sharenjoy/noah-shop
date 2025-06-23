@@ -7,9 +7,9 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use Sharenjoy\NoahCms\Models\User;
+use Sharenjoy\NoahShop\Models\User;
 use Sharenjoy\NoahCms\Resources\Traits\NoahBaseRelationManager;
-use Sharenjoy\NoahCms\Resources\UserResource;
+use Sharenjoy\NoahShop\Resources\UserResource;
 
 class UserRelationManager extends RelationManager
 {
@@ -21,12 +21,12 @@ class UserRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.user');
+        return __('noah-shop::noah-shop.user');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.user');
+        return __('noah-shop::noah-shop.user');
     }
 
     public function form(Form $form): Form
@@ -40,7 +40,7 @@ class UserRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(User $record): string => "({$record->id}) {$record->name}\r{$record->email}")
-            ->heading(__('noah-cms::noah-cms.user'))
+            ->heading(__('noah-shop::noah-shop.user'))
             ->searchable(false)
             ->columns(array_merge(static::getTableStartColumns(UserResource::class), \Sharenjoy\NoahCms\Utils\Table::make(User::class)))
             // ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(User::class, Role::class))

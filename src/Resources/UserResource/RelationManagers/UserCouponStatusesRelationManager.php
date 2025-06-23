@@ -20,12 +20,12 @@ class UserCouponStatusesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.user_coupon_status');
+        return __('noah-shop::noah-shop.user_coupon_status');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.user_coupon_status');
+        return __('noah-shop::noah-shop.user_coupon_status');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -43,7 +43,7 @@ class UserCouponStatusesRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->heading(__('noah-cms::noah-cms.user_coupon_status'))
+            ->heading(__('noah-shop::noah-shop.user_coupon_status'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(UserCouponStatus::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(UserCouponStatus::class))
             ->searchable(false)

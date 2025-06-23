@@ -50,7 +50,7 @@ class Objective extends Model
             'relation_count' => ['label' => 'products_count', 'relation' => 'products'],
             'user_relation_count' => ['alias' => 'relation_count', 'label' => 'users_count', 'relation' => 'users'],
             'status' => LoadingStatusColumn::make('status')
-                ->label(__('noah-cms::noah-cms.status'))
+                ->label(__('noah-shop::noah-shop.status'))
                 ->toggleable(),
             'generated_at' => ['label' => 'last_generated_at', 'type' => 'date'],
             'created_at' => [],

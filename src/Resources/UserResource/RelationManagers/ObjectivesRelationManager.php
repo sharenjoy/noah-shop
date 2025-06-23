@@ -24,12 +24,12 @@ class ObjectivesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.objective');
+        return __('noah-shop::noah-shop.objective');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.objective');
+        return __('noah-shop::noah-shop.objective');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -48,7 +48,7 @@ class ObjectivesRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(Objective $record): string => "({$record->id}) {$record->title}")
-            ->heading(__('noah-cms::noah-cms.objective'))
+            ->heading(__('noah-shop::noah-shop.objective'))
             ->columns(array_merge(static::getTableStartColumns(ObjectiveResource::class), \Sharenjoy\NoahCms\Utils\Table::make(Objective::class)))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(Objective::class, User::class))
             ->headerActions([

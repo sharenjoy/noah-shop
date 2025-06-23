@@ -10,7 +10,7 @@ class ViewOrderItemsAction
     public static function make($callback)
     {
         return Action::make('view_items')
-            ->label(__('noah-cms::noah-cms.order_item_counts'))
+            ->label(__('noah-shop::noah-shop.order_item_counts'))
             ->modal()
             ->modalCancelAction(false)
             ->modalSubmitAction(false)

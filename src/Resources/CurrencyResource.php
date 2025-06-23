@@ -8,7 +8,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Sharenjoy\NoahShop\Models\Currency;
-use Sharenjoy\NoahCms\Resources\CategoryResource\RelationManagers\ProductsRelationManager;
 use Sharenjoy\NoahShop\Resources\CurrencyResource\Pages;
 use Sharenjoy\NoahCms\Resources\Traits\NoahBaseResource;
 
@@ -24,12 +23,12 @@ class CurrencyResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.currency');
+        return __('noah-shop::noah-shop.currency');
     }
 
     public static function form(Form $form): Form

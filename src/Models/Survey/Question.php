@@ -88,7 +88,7 @@ class Question extends Model implements Sortable
                         ->required()
                         ->reactive()
                         ->options(
-                            collect(config('noah-cms.survey.question.types'))
+                            collect(config('noah-shop.survey.question.types'))
                                 ->mapWithKeys(fn($label, $key) => [
                                     $key => __('noah-shop::noah-shop.survey.title.' . strtolower($label))
                                 ])
@@ -209,6 +209,6 @@ class Question extends Model implements Sortable
 
     protected static function newFactory()
     {
-        return \Sharenjoy\NoahCms\Database\Factories\Survey\QuestionFactory::new();
+        return \Sharenjoy\NoahShop\Database\Factories\Survey\QuestionFactory::new();
     }
 }

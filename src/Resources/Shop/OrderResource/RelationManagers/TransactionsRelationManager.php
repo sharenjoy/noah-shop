@@ -8,7 +8,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Sharenjoy\NoahCms\Models\Transaction;
+use Sharenjoy\NoahShop\Models\Transaction;
 
 class TransactionsRelationManager extends RelationManager
 {
@@ -18,12 +18,12 @@ class TransactionsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.order_transaction');
+        return __('noah-shop::noah-shop.order_transaction');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.order_transaction');
+        return __('noah-shop::noah-shop.order_transaction');
     }
 
     public static function getEloquentQuery(): Builder
@@ -41,7 +41,7 @@ class TransactionsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->heading(__('noah-cms::noah-cms.order_transaction'))
+            ->heading(__('noah-shop::noah-shop.order_transaction'))
             ->searchable(false)
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(Transaction::class))
             // ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(Transaction::class, Role::class))

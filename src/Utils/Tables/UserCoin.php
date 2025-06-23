@@ -3,7 +3,7 @@
 namespace Sharenjoy\NoahShop\Utils\Tables;
 
 use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
-use Sharenjoy\NoahCms\Tables\Columns\UserCoinColumn;
+use Sharenjoy\NoahShop\Tables\Columns\UserCoinColumn;
 use Sharenjoy\NoahCms\Utils\Tables\TableAbstract;
 use Sharenjoy\NoahCms\Utils\Tables\TableInterface;
 

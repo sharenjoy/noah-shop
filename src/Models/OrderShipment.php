@@ -51,7 +51,7 @@ class OrderShipment extends Model
         return [
             'left' => [
                 'provider' => Select::make('provider')
-                    ->label(__('noah-cms::noah-cms.delivery_provider'))
+                    ->label(__('noah-shop::noah-shop.delivery_provider'))
                     ->options(DeliveryProvider::class),
             ],
             'right' => [],
@@ -62,12 +62,12 @@ class OrderShipment extends Model
     {
         return [
             'provider' => TextColumn::make('provider')
-                ->label(__('noah-cms::noah-cms.activity.label.provider'))
+                ->label(__('noah-shop::noah-shop.activity.label.provider'))
                 ->sortable()
                 ->searchable()
                 ->badge(DeliveryProvider::class),
             'delivery_type' => TextColumn::make('delivery_type')
-                ->label(__('noah-cms::noah-cms.activity.label.delivery_type'))
+                ->label(__('noah-shop::noah-shop.activity.label.delivery_type'))
                 ->sortable()
                 ->searchable()
                 ->badge(DeliveryType::class),

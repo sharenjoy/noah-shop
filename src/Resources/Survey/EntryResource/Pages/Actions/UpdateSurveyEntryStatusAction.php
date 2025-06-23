@@ -28,11 +28,11 @@ class UpdateSurveyEntryStatusAction
                         Grid::make(1)
                             ->schema([
                                 Select::make('status')
-                                    ->label(__('noah-cms::noah-cms.status'))
+                                    ->label(__('noah-shop::noah-shop.status'))
                                     ->options(SurveyEntryStatus::visibleOptions())
                                     ->required(),
 
-                                Textarea::make('content')->rows(2)->label(__('noah-cms::noah-cms.activity.label.status_notes')),
+                                Textarea::make('content')->rows(2)->label(__('noah-shop::noah-shop.activity.label.status_notes')),
                             ]),
                     ]),
             ])

@@ -24,7 +24,7 @@ trait PromoableResource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.promo');
+        return __('noah-shop::noah-shop.promo');
     }
 
     public static function form(Form $form): Form
@@ -54,8 +54,8 @@ trait PromoableResource
                                         ->label(__('noah-shop::noah-shop.shop.promo.title.combined'))
                                         ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.combined')))
                                         ->options([
-                                            true => __('noah-cms::noah-cms.yes'),
-                                            false => __('noah-cms::noah-cms.no'),
+                                            true => __('noah-shop::noah-shop.yes'),
+                                            false => __('noah-shop::noah-shop.no'),
                                         ])
                                         ->default(true)
                                         ->inline()
@@ -82,8 +82,8 @@ trait PromoableResource
                                         ->label(__('noah-shop::noah-shop.shop.promo.title.forever'))
                                         ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.forever')))
                                         ->options([
-                                            true => __('noah-cms::noah-cms.yes'),
-                                            false => __('noah-cms::noah-cms.no'),
+                                            true => __('noah-shop::noah-shop.yes'),
+                                            false => __('noah-shop::noah-shop.no'),
                                         ])
                                         ->default(false)
                                         ->inline()

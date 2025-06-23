@@ -26,7 +26,7 @@ class MinQuantityPromoResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.min_quantity_promo');
+        return __('noah-shop::noah-shop.min_quantity_promo');
     }
 
     public static function getEloquentQuery(): Builder

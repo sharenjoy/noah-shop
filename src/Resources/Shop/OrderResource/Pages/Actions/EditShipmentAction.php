@@ -46,13 +46,13 @@ class EditShipmentAction
                     Grid::make(2)
                         ->schema([
                             Select::make('shipment.provider')
-                                ->label(__('noah-cms::noah-cms.activity.label.provider'))
+                                ->label(__('noah-shop::noah-shop.activity.label.provider'))
                                 ->options(DeliveryProvider::visibleOptions())
                                 ->required()
                                 ->live(),
 
                             Select::make('shipment.delivery_type')
-                                ->label(__('noah-cms::noah-cms.activity.label.delivery_type'))
+                                ->label(__('noah-shop::noah-shop.activity.label.delivery_type'))
                                 ->options(DeliveryType::visibleOptions())
                                 ->required()
                                 ->live(),
@@ -66,15 +66,15 @@ class EditShipmentAction
                     Grid::make(2)
                         ->schema([
                             Select::make('shipment.calling_code')
-                                ->label(__('noah-cms::noah-cms.activity.label.calling_code'))
+                                ->label(__('noah-shop::noah-shop.activity.label.calling_code'))
                                 ->options(FetchCountryRelatedSelectOptions::run('calling_code'))
                                 ->searchable()
                                 ->required(),
-                            TextInput::make('shipment.mobile')->label(__('noah-cms::noah-cms.activity.label.mobile'))->required(),
+                            TextInput::make('shipment.mobile')->label(__('noah-shop::noah-shop.activity.label.mobile'))->required(),
                         ]),
                     Grid::make(1)
                         ->schema([
-                            TextInput::make('shipment.name')->label(__('noah-cms::noah-cms.activity.label.name'))->required(),
+                            TextInput::make('shipment.name')->label(__('noah-shop::noah-shop.activity.label.name'))->required(),
                         ]),
                 ]),
 
@@ -85,21 +85,21 @@ class EditShipmentAction
                     Grid::make(2)
                         ->schema([
                             Select::make('shipment.country')
-                                ->label(__('noah-cms::noah-cms.activity.label.country'))
+                                ->label(__('noah-shop::noah-shop.activity.label.country'))
                                 ->options(FetchCountryRelatedSelectOptions::run('country'))
                                 ->searchable()
                                 ->required()
                                 ->live(),
-                            TextInput::make('shipment.postcode')->label(__('noah-cms::noah-cms.activity.label.postcode'))->required(),
+                            TextInput::make('shipment.postcode')->label(__('noah-shop::noah-shop.activity.label.postcode'))->required(),
                             Select::make('shipment.city')
-                                ->label(__('noah-cms::noah-cms.activity.label.city'))
+                                ->label(__('noah-shop::noah-shop.activity.label.city'))
                                 ->visible(fn(Get $get): bool => $get('shipment.country') == 'Taiwan')
                                 ->options(FetchAddressRelatedSelectOptions::run('city'))
                                 ->searchable()
                                 ->required()
                                 ->live(),
                             Select::make('shipment.district')
-                                ->label(__('noah-cms::noah-cms.activity.label.district'))
+                                ->label(__('noah-shop::noah-shop.activity.label.district'))
                                 ->options(fn(Get $get) => FetchAddressRelatedSelectOptions::run('district', $get('shipment.city')))
                                 ->searchable()
                                 ->required()
@@ -107,7 +107,7 @@ class EditShipmentAction
                         ]),
                     Grid::make(1)
                         ->schema([
-                            Textarea::make('shipment.address')->rows(2)->label(__('noah-cms::noah-cms.activity.label.address'))->required(),
+                            Textarea::make('shipment.address')->rows(2)->label(__('noah-shop::noah-shop.activity.label.address'))->required(),
                         ]),
                 ])->visible(fn(Get $get): bool => $get('shipment.delivery_type') == DeliveryType::Address->value),
 
@@ -117,12 +117,12 @@ class EditShipmentAction
                 ->schema([
                     Grid::make(2)
                         ->schema([
-                            TextInput::make('shipment.pickup_store_no')->label(__('noah-cms::noah-cms.activity.label.pickup_store_no'))->required(),
-                            TextInput::make('shipment.pickup_store_name')->label(__('noah-cms::noah-cms.activity.label.pickup_store_name'))->required(),
+                            TextInput::make('shipment.pickup_store_no')->label(__('noah-shop::noah-shop.activity.label.pickup_store_no'))->required(),
+                            TextInput::make('shipment.pickup_store_name')->label(__('noah-shop::noah-shop.activity.label.pickup_store_name'))->required(),
                         ]),
                     Grid::make(1)
                         ->schema([
-                            Textarea::make('shipment.pickup_store_address')->rows(2)->label(__('noah-cms::noah-cms.activity.label.pickup_store_address'))->required(),
+                            Textarea::make('shipment.pickup_store_address')->rows(2)->label(__('noah-shop::noah-shop.activity.label.pickup_store_address'))->required(),
                         ]),
                 ])->visible(fn(Get $get): bool => $get('shipment.delivery_type') == DeliveryType::Pickinstore->value),
 
@@ -132,7 +132,7 @@ class EditShipmentAction
                 ->schema([
                     Grid::make(1)
                         ->schema([
-                            TextInput::make('shipment.pickup_retail_name')->label(__('noah-cms::noah-cms.activity.label.pickup_retail_name'))->required(),
+                            TextInput::make('shipment.pickup_retail_name')->label(__('noah-shop::noah-shop.activity.label.pickup_retail_name'))->required(),
                         ]),
                 ])->visible(fn(Get $get): bool => $get('shipment.delivery_type') == DeliveryType::Pickinretail->value),
 
@@ -142,7 +142,7 @@ class EditShipmentAction
                 ->schema([
                     Grid::make(1)
                         ->schema([
-                            TextInput::make('shipment.postoffice_delivery_code')->label(__('noah-cms::noah-cms.activity.label.postoffice_delivery_code'))->required(),
+                            TextInput::make('shipment.postoffice_delivery_code')->label(__('noah-shop::noah-shop.activity.label.postoffice_delivery_code'))->required(),
                         ]),
                 ])->visible(fn(Get $get): bool => ($get('shipment.provider') == DeliveryProvider::Postoffice->value && $get('shipment.delivery_type') == DeliveryType::Address->value)),
 

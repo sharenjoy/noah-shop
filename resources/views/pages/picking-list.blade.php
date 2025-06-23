@@ -1,4 +1,4 @@
-<x-noah-cms::order-docs>
+<x-noah-shop::order-docs>
 
     <div id="order-info-area">
         @foreach ($models as $order)
@@ -103,4 +103,4 @@
         @endforeach
     </div>
 
-</x-noah-cms::order-docs>
+</x-noah-shop::order-docs>

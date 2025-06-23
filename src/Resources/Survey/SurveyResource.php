@@ -59,8 +59,8 @@ class SurveyResource extends Resource implements HasShieldPermissions
                                 ->label(__('noah-shop::noah-shop.survey.title.allow_guest'))
                                 ->helperText(new HtmlString(__('noah-shop::noah-shop.survey.help.allow_guest')))
                                 ->options([
-                                    true => __('noah-cms::noah-cms.yes'),
-                                    false => __('noah-cms::noah-cms.no'),
+                                    true => __('noah-shop::noah-shop.yes'),
+                                    false => __('noah-shop::noah-shop.no'),
                                 ])
                                 ->default(false)
                                 ->inline()
@@ -74,8 +74,8 @@ class SurveyResource extends Resource implements HasShieldPermissions
                                     Radio::make('forever')
                                         ->label(__('noah-shop::noah-shop.survey.title.forever'))
                                         ->options([
-                                            true => __('noah-cms::noah-cms.yes'),
-                                            false => __('noah-cms::noah-cms.no'),
+                                            true => __('noah-shop::noah-shop.yes'),
+                                            false => __('noah-shop::noah-shop.no'),
                                         ])
                                         ->default(true)
                                         ->inline()
@@ -112,8 +112,8 @@ class SurveyResource extends Resource implements HasShieldPermissions
                                         ->label(__('noah-shop::noah-shop.survey.title.limit'))
                                         ->helperText(new HtmlString(__('noah-shop::noah-shop.survey.help.limit')))
                                         ->options([
-                                            true => __('noah-cms::noah-cms.yes'),
-                                            false => __('noah-cms::noah-cms.no'),
+                                            true => __('noah-shop::noah-shop.yes'),
+                                            false => __('noah-shop::noah-shop.no'),
                                         ])
                                         ->default(false)
                                         ->inline()
@@ -150,8 +150,8 @@ class SurveyResource extends Resource implements HasShieldPermissions
                                         ->label(__('noah-shop::noah-shop.survey.title.purchaseable'))
                                         ->helperText(new HtmlString(__('noah-shop::noah-shop.survey.help.purchaseable')))
                                         ->options([
-                                            true => __('noah-cms::noah-cms.yes'),
-                                            false => __('noah-cms::noah-cms.no'),
+                                            true => __('noah-shop::noah-shop.yes'),
+                                            false => __('noah-shop::noah-shop.no'),
                                         ])
                                         ->default(false)
                                         ->inline()
@@ -161,8 +161,8 @@ class SurveyResource extends Resource implements HasShieldPermissions
                                         ->label(__('noah-shop::noah-shop.survey.title.purchase_depends_on_option'))
                                         ->helperText(new HtmlString(__('noah-shop::noah-shop.survey.help.purchase_depends_on_option')))
                                         ->options([
-                                            true => __('noah-cms::noah-cms.yes'),
-                                            false => __('noah-cms::noah-cms.no'),
+                                            true => __('noah-shop::noah-shop.yes'),
+                                            false => __('noah-shop::noah-shop.no'),
                                         ])
                                         ->default(true)
                                         ->visible(function (Get $get) {

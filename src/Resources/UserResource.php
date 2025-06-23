@@ -12,7 +12,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
-use Sharenjoy\NoahShop\Actions\Shop\RoleCan;
+use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
 use Sharenjoy\NoahCms\Models\Role;
 use Sharenjoy\NoahShop\Models\User;
 use Sharenjoy\NoahShop\Models\UserLevel;
@@ -46,7 +46,7 @@ class UserResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.user');
+        return __('noah-shop::noah-shop.user');
     }
 
     public static function form(Form $form): Form
@@ -65,7 +65,7 @@ class UserResource extends Resource implements HasShieldPermissions
                 Filter::make('userLevels')
                     ->form([
                         Select::make('userLevels')
-                            ->label(__('noah-cms::noah-cms.user_level'))
+                            ->label(__('noah-shop::noah-shop.user_level'))
                             ->options(UserLevel::all()->pluck('title', 'id'))
                             ->prefixIcon('heroicon-o-chart-bar')
                             ->multiple()
@@ -78,7 +78,7 @@ class UserResource extends Resource implements HasShieldPermissions
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['userLevels'] ?? null) {
-                            return __('noah-cms::noah-cms.user_level') . ': ' . implode(', ', UserLevel::whereIn('id', $data['userLevels'])->get()->pluck('title')->toArray());
+                            return __('noah-shop::noah-shop.user_level') . ': ' . implode(', ', UserLevel::whereIn('id', $data['userLevels'])->get()->pluck('title')->toArray());
                         }
 
                         return null;
@@ -86,7 +86,7 @@ class UserResource extends Resource implements HasShieldPermissions
                 Filter::make('roles')
                     ->form([
                         Select::make('roles')
-                            ->label(__('noah-cms::noah-cms.role'))
+                            ->label(__('noah-shop::noah-shop.role'))
                             ->options(Role::all()->pluck('name', 'id'))
                             ->prefixIcon('heroicon-o-shield-check')
                             ->multiple()
@@ -99,7 +99,7 @@ class UserResource extends Resource implements HasShieldPermissions
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['roles'] ?? null) {
-                            return __('noah-cms::noah-cms.role') . ': ' . implode(', ', Role::whereIn('id', $data['roles'])->get()->pluck('name')->toArray());
+                            return __('noah-shop::noah-shop.role') . ': ' . implode(', ', Role::whereIn('id', $data['roles'])->get()->pluck('name')->toArray());
                         }
 
                         return null;

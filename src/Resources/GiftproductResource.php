@@ -32,12 +32,12 @@ class GiftproductResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.giftproduct');
+        return __('noah-shop::noah-shop.giftproduct');
     }
 
     public static function form(Form $form): Form
@@ -47,7 +47,7 @@ class GiftproductResource extends Resource implements HasShieldPermissions
             ->schema(array_merge([
                 Section::make('')->schema([
                     Select::make('product_specification_id')
-                        ->label(__('noah-cms::noah-cms.specification'))
+                        ->label(__('noah-shop::noah-shop.specification'))
                         ->options(function () {
                             return ProductSpecification::all()->pluck('label', 'id');
                         })

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Sharenjoy\NoahShop\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahShop\Models\Product;
 use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
 use Sharenjoy\NoahCms\Models\Traits\HasMediaLibrary;
@@ -54,17 +54,17 @@ class ProductSpecification extends Model implements Sortable
             'left' => [
                 'spec_detail_name' => [],
                 'no' => Section::make()->schema([
-                    TextInput::make('no')->placeholder(__('noah-cms::noah-cms.spec_no'))->label(__('noah-cms::noah-cms.spec_no'))->unique(ProductSpecification::class, 'no', ignoreRecord: true),
+                    TextInput::make('no')->placeholder(__('noah-shop::noah-shop.spec_no'))->label(__('noah-shop::noah-shop.spec_no'))->unique(ProductSpecification::class, 'no', ignoreRecord: true),
                     TextInput::make('sku')->placeholder('SKU')->label('SKU')->unique(ProductSpecification::class, 'sku', ignoreRecord: true),
-                    TextInput::make('barcode')->placeholder(__('noah-cms::noah-cms.spec_barcode'))->label(__('noah-cms::noah-cms.spec_barcode'))->unique(ProductSpecification::class, 'barcode', ignoreRecord: true),
+                    TextInput::make('barcode')->placeholder(__('noah-shop::noah-shop.spec_barcode'))->label(__('noah-shop::noah-shop.spec_barcode'))->unique(ProductSpecification::class, 'barcode', ignoreRecord: true),
                 ])->columns(3),
                 'price' => Section::make()->schema([
-                    TextInput::make('price')->numeric()->placeholder(__('noah-cms::noah-cms.price'))->label(__('noah-cms::noah-cms.price'))->helperText('實際結帳價格'),
-                    TextInput::make('compare_price')->numeric()->placeholder(__('noah-cms::noah-cms.compare_price'))->label(__('noah-cms::noah-cms.compare_price'))->helperText('通常可作為有刪除線的價格'),
-                    TextInput::make('cost')->numeric()->placeholder(__('noah-cms::noah-cms.cost'))->label(__('noah-cms::noah-cms.cost')),
+                    TextInput::make('price')->numeric()->placeholder(__('noah-shop::noah-shop.price'))->label(__('noah-shop::noah-shop.price'))->helperText('實際結帳價格'),
+                    TextInput::make('compare_price')->numeric()->placeholder(__('noah-shop::noah-shop.compare_price'))->label(__('noah-shop::noah-shop.compare_price'))->helperText('通常可作為有刪除線的價格'),
+                    TextInput::make('cost')->numeric()->placeholder(__('noah-shop::noah-shop.cost'))->label(__('noah-shop::noah-shop.cost')),
                 ])->columns(3),
                 'weight' => Section::make()->schema([
-                    TextInput::make('weight')->numeric()->placeholder(1200)->label(__('noah-cms::noah-cms.weight'))->helperText('含包裝的重量，單位為公克(g)')
+                    TextInput::make('weight')->numeric()->placeholder(1200)->label(__('noah-shop::noah-shop.weight'))->helperText('含包裝的重量，單位為公克(g)')
                 ]),
                 'content' => [
                     'profile' => 'simple',
@@ -74,7 +74,7 @@ class ProductSpecification extends Model implements Sortable
                 'img' => ['required' => true],
                 'album' => [],
                 'is_active' => ['required' => true],
-                'stock' => Section::make(__('noah-cms::noah-cms.stock'))
+                'stock' => Section::make(__('noah-shop::noah-shop.stock'))
                     ->hidden(fn($record) => $record === null)
                     ->visible(fn(): bool => ShopFeatured::run('shop'))
                     ->schema([
@@ -94,7 +94,7 @@ class ProductSpecification extends Model implements Sortable
             'spec_detail_name' => [],
             'no' => ['label' => 'spec_no'],
             'sku' => [],
-            'stock' => TextColumn::make('stock')->label(__('noah-cms::noah-cms.stock'))->numeric()->toggleable()->visible(fn(): bool => ShopFeatured::run('shop')),
+            'stock' => TextColumn::make('stock')->label(__('noah-shop::noah-shop.stock'))->numeric()->toggleable()->visible(fn(): bool => ShopFeatured::run('shop')),
             'price' => ['type' => 'number'],
             'compare_price' => ['type' => 'number'],
             'weight' => ['type' => 'number'],

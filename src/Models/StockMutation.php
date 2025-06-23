@@ -32,8 +32,8 @@ class StockMutation extends Model
                 'amount' => Section::make()->schema([
                     TextInput::make('amount')
                         ->numeric()
-                        ->placeholder(__('noah-cms::noah-cms.stock'))
-                        ->label(__('noah-cms::noah-cms.stock'))
+                        ->placeholder(__('noah-shop::noah-shop.stock'))
+                        ->label(__('noah-shop::noah-shop.stock'))
                         ->helperText('數值可以是正數或負數，正數表示增加，負數表示減少')
                         ->required()
                         ->rules(['required', 'numeric']),

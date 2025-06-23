@@ -22,7 +22,7 @@ class OrderResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.order');
+        return __('noah-shop::noah-shop.order');
     }
 
     public static function getBulkActions(): array

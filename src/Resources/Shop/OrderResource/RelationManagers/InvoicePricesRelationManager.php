@@ -8,7 +8,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Sharenjoy\NoahCms\Models\InvoicePrice;
+use Sharenjoy\NoahShop\Models\InvoicePrice;
 
 class InvoicePricesRelationManager extends RelationManager
 {
@@ -18,12 +18,12 @@ class InvoicePricesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.price_items');
+        return __('noah-shop::noah-shop.price_items');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.price_items');
+        return __('noah-shop::noah-shop.price_items');
     }
 
     public static function getEloquentQuery(): Builder
@@ -41,7 +41,7 @@ class InvoicePricesRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->heading(__('noah-cms::noah-cms.price_items'))
+            ->heading(__('noah-shop::noah-shop.price_items'))
             ->searchable(false)
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(InvoicePrice::class))
             // ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(InvoicePrice::class, Role::class))

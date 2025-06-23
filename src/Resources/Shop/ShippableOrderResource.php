@@ -25,7 +25,7 @@ class ShippableOrderResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.shippable_order');
+        return __('noah-shop::noah-shop.shippable_order');
     }
 
     public static function getNavigationBadge(): ?string

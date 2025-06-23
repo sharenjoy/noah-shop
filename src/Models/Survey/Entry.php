@@ -85,7 +85,7 @@ class Entry extends Model
                 ->state(function ($record) {
                     return $record->participant->name ?? $record->name;
                 }),
-            'status' => TextColumn::make('status')->label(__('noah-cms::noah-cms.status'))
+            'status' => TextColumn::make('status')->label(__('noah-shop::noah-shop.status'))
                 ->state(function ($record) use ($entryStatuses) {
                     return $entryStatuses[$record->status] ?? '-';
                 })->badge()->sortable()->toggleable(),

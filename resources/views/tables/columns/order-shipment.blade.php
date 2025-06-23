@@ -25,7 +25,7 @@
                 <div class="w-fit"><x-filament::badge size="sm" color="warning">{{ $shipment->status->getLabel() }}</x-filament::badge></div>
             </li>
             @if ($shipment->provider == \Sharenjoy\NoahShop\Enums\DeliveryProvider::Postoffice && $shipment->postoffice_delivery_code)
-                <li><div class="text-xs" style="color: #555">{{ __('noah-cms::noah-cms.activity.label.postoffice_delivery_code') }} {{ $shipment->postoffice_delivery_code }}</div></li>
+                <li><div class="text-xs" style="color: #555">{{ __('noah-shop::noah-shop.activity.label.postoffice_delivery_code') }} {{ $shipment->postoffice_delivery_code }}</div></li>
             @endif
         </ul>
     @else
@@ -37,7 +37,7 @@
             <li><div class="text-sm" style="color: #555">{{ $shipment->calling_code }} {{ $shipment->mobile }}</div></li>
             <li><div class="text-sm" style="color: #555">{!! \Sharenjoy\NoahShop\Actions\Shop\DisplayOrderShipmentDetail::run(shipment: $shipment) !!}</div></li>
             @if ($shipment->provider == \Sharenjoy\NoahShop\Enums\DeliveryProvider::Postoffice && $shipment->postoffice_delivery_code)
-                <li><div class="text-sm" style="color: #555">{{ __('noah-cms::noah-cms.activity.label.postoffice_delivery_code') }} {{ $shipment->postoffice_delivery_code }}</div></li>
+                <li><div class="text-sm" style="color: #555">{{ __('noah-shop::noah-shop.activity.label.postoffice_delivery_code') }} {{ $shipment->postoffice_delivery_code }}</div></li>
             @endif
         </ul>
     @endif

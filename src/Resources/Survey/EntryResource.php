@@ -80,10 +80,10 @@ class EntryResource extends Resource implements HasShieldPermissions
                         ->icon('heroicon-o-arrows-right-left')
                         ->form([
                             Select::make('status')
-                                ->label(__('noah-cms::noah-cms.status'))
+                                ->label(__('noah-shop::noah-shop.status'))
                                 ->options(SurveyEntryStatus::visibleOptions())
                                 ->required(),
-                            Textarea::make('content')->rows(2)->label(__('noah-cms::noah-cms.activity.label.status_notes')),
+                            Textarea::make('content')->rows(2)->label(__('noah-shop::noah-shop.activity.label.status_notes')),
                         ])
                         ->mountUsing(function (ComponentContainer $form, $record) {
                             $form->fill($record->toArray());
@@ -117,10 +117,10 @@ class EntryResource extends Resource implements HasShieldPermissions
                         ->icon('heroicon-o-arrows-right-left')
                         ->form([
                             Select::make('status')
-                                ->label(__('noah-cms::noah-cms.status'))
+                                ->label(__('noah-shop::noah-shop.status'))
                                 ->options(SurveyEntryStatus::visibleOptions())
                                 ->required(),
-                            Textarea::make('content')->rows(2)->label(__('noah-cms::noah-cms.activity.label.status_notes')),
+                            Textarea::make('content')->rows(2)->label(__('noah-shop::noah-shop.activity.label.status_notes')),
                         ])
                         ->action(function ($records, array $data) {
                             $statusEnum = SurveyEntryStatus::tryFrom($data['status']);

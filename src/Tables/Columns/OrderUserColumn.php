@@ -6,5 +6,5 @@ use Filament\Tables\Columns\Column;
 
 class OrderUserColumn extends Column
 {
-    protected string $view = 'noah-cms::tables.columns.order-user';
+    protected string $view = 'noah-shop::tables.columns.order-user';
 }

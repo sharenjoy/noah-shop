@@ -5,7 +5,7 @@ namespace Sharenjoy\NoahShop\Widgets;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
-use Sharenjoy\NoahShop\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahShop\Models\Order;
 use Sharenjoy\NoahShop\Resources\Shop\NewOrderResource;
 use Sharenjoy\NoahShop\Resources\Shop\OrderResource;

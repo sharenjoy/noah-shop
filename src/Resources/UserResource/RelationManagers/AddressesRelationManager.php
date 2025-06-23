@@ -22,12 +22,12 @@ class AddressesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.address');
+        return __('noah-shop::noah-shop.address');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.address');
+        return __('noah-shop::noah-shop.address');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -46,7 +46,7 @@ class AddressesRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(Address $record): string => "({$record->id}) {$record->title}")
-            ->heading(__('noah-cms::noah-cms.address'))
+            ->heading(__('noah-shop::noah-shop.address'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(Address::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(Address::class, User::class))
             ->headerActions([

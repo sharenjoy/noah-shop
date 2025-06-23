@@ -18,7 +18,7 @@ class SpecDetailName extends TableAbstract implements TableInterface
             ->toggleable(isToggledHiddenByDefault: $this->content['isToggledHiddenByDefault'] ?? false)
             ->formatStateUsing(function ($state) {
                 if ($state == 'single_spec') {
-                    return __('noah-cms::noah-cms.' . $state);
+                    return __('noah-shop::noah-shop.' . $state);
                 }
                 return $state;
             });

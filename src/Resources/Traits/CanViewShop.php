@@ -3,7 +3,7 @@
 namespace Sharenjoy\NoahShop\Resources\Traits;
 
 use Illuminate\Database\Eloquent\Model;
-use Sharenjoy\NoahShop\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 
 trait CanViewShop
 {

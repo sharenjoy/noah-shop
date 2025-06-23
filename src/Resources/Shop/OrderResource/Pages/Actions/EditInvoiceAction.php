@@ -43,12 +43,12 @@ class EditInvoiceAction
                     Grid::make(1)
                         ->schema([
                             Select::make('invoice.type')
-                                ->label(__('noah-cms::noah-cms.invoice_type'))
+                                ->label(__('noah-shop::noah-shop.invoice_type'))
                                 ->options(InvoiceType::class)
                                 ->required()
                                 ->live(),
                             Select::make('invoice.holder_type')
-                                ->label(__('noah-cms::noah-cms.invoice_holder_type'))
+                                ->label(__('noah-shop::noah-shop.invoice_holder_type'))
                                 ->options(InvoiceHolderType::class)
                                 ->required()
                                 ->visible(fn(Get $get): bool => $get('invoice.type') == InvoiceType::Holder->value),
@@ -63,7 +63,7 @@ class EditInvoiceAction
                         ->schema([
                             TextInput::make('invoice.holder_code')
                                 ->required()
-                                ->label(__('noah-cms::noah-cms.invoice_holder_code')),
+                                ->label(__('noah-shop::noah-shop.invoice_holder_code')),
                         ]),
                 ])
                 ->visible(fn(Get $get): bool => $get('invoice.type') == InvoiceType::Holder->value),
@@ -75,9 +75,9 @@ class EditInvoiceAction
                     Grid::make(1)
                         ->schema([
                             Select::make('invoice.donate_code')
-                                ->label(__('noah-cms::noah-cms.invoice_donate_code'))
+                                ->label(__('noah-shop::noah-shop.invoice_donate_code'))
                                 ->required()
-                                ->options(config('noah-cms.donate_code')),
+                                ->options(config('noah-shop.donate_code')),
                         ]),
                 ])
                 ->visible(fn(Get $get): bool => $get('invoice.type') == InvoiceType::Donate->value),
@@ -90,10 +90,10 @@ class EditInvoiceAction
                         ->schema([
                             TextInput::make('invoice.company_title')
                                 ->required()
-                                ->label(__('noah-cms::noah-cms.invoice_company_title')),
+                                ->label(__('noah-shop::noah-shop.invoice_company_title')),
                             TextInput::make('invoice.company_code')
                                 ->required()
-                                ->label(__('noah-cms::noah-cms.invoice_company_code')),
+                                ->label(__('noah-shop::noah-shop.invoice_company_code')),
                         ]),
                 ])
                 ->visible(fn(Get $get): bool => $get('invoice.type') == InvoiceType::Company->value),

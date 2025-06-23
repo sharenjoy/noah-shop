@@ -22,7 +22,7 @@ class IssuedOrderResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.issued_order');
+        return __('noah-shop::noah-shop.issued_order');
     }
 
     public static function getNavigationBadge(): ?string

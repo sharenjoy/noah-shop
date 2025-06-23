@@ -107,20 +107,20 @@ class CreateOrder extends CreateRecord
                             ->required()
                             ->placeholder('選擇購買人'),
 
-                        Textarea::make('notes')->rows(3)->label(__('noah-cms::noah-cms.order_notes')),
+                        Textarea::make('notes')->rows(3)->label(__('noah-shop::noah-shop.order_notes')),
 
                     ])->columns(1)->extraAttributes(['style' => 'max-width: 600px; margin: 0 auto;']),
                 ]),
 
-            Step::make(__('noah-cms::noah-cms.order_items'))
+            Step::make(__('noah-shop::noah-shop.order_items'))
                 ->schema([
-                    Section::make(__('noah-cms::noah-cms.order_items'))
+                    Section::make(__('noah-shop::noah-shop.order_items'))
                         ->schema([
                             Repeater::make('items')
-                                ->label(__('noah-cms::noah-cms.order_items'))
+                                ->label(__('noah-shop::noah-shop.order_items'))
                                 ->schema([
                                     Select::make('product_specification_id')
-                                        ->label(__('noah-cms::noah-cms.product'))
+                                        ->label(__('noah-shop::noah-shop.product'))
                                         ->options(function () {
                                             return ProductSpecification::all()->pluck('label', 'id');
                                         })

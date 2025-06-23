@@ -19,12 +19,12 @@ class RolesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.role');
+        return __('noah-shop::noah-shop.role');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.role');
+        return __('noah-shop::noah-shop.role');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -46,7 +46,7 @@ class RolesRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('name')
-            ->heading(__('noah-cms::noah-cms.role'))
+            ->heading(__('noah-shop::noah-shop.role'))
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->weight('font-medium')

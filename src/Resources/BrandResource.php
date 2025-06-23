@@ -24,12 +24,12 @@ class BrandResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.brand');
+        return __('noah-shop::noah-shop.brand');
     }
 
     public static function form(Form $form): Form

@@ -3,7 +3,7 @@
 namespace Sharenjoy\NoahShop\Widgets;
 
 use Filament\Widgets\ChartWidget;
-use Sharenjoy\NoahShop\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 
 class CustomersChart extends ChartWidget
 {

@@ -22,7 +22,7 @@ class NewOrderResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.new_order');
+        return __('noah-shop::noah-shop.new_order');
     }
 
     public static function getNavigationBadge(): ?string

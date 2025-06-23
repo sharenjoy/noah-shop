@@ -12,7 +12,7 @@ class ViewOrderPickingListAction
     {
         if ($actionType === 'single') {
             return Action::make('view_order_picking_list')
-                ->label(__('noah-cms::noah-cms.view_order_picking_list'))
+                ->label(__('noah-shop::noah-shop.view_order_picking_list'))
                 ->icon('heroicon-o-document-text')
                 ->url(function ($record) use ($resource) {
                     return route('filament.' . Filament::getCurrentPanel()->getId() . '.resources.shop.' . $resource . '.picking-list', [
@@ -23,7 +23,7 @@ class ViewOrderPickingListAction
 
         if ($actionType === 'bulk') {
             return BulkAction::make('view_order_picking_list')
-                ->label(__('noah-cms::noah-cms.view_order_picking_list'))
+                ->label(__('noah-shop::noah-shop.view_order_picking_list'))
                 ->action(function ($records) use ($resource) {
                     return redirect()->route('filament.' . Filament::getCurrentPanel()->getId() . '.resources.shop.' . $resource . '.picking-list', [
                         'record' => $records->first()->id,

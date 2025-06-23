@@ -3,7 +3,7 @@
 namespace Sharenjoy\NoahShop\Utils\Tables;
 
 use Illuminate\Database\Eloquent\Builder;
-use Sharenjoy\NoahCms\Tables\Columns\OrderShipmentColumn;
+use Sharenjoy\NoahShop\Tables\Columns\OrderShipmentColumn;
 use Sharenjoy\NoahCms\Utils\Tables\TableAbstract;
 use Sharenjoy\NoahCms\Utils\Tables\TableInterface;
 

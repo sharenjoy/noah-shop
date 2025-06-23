@@ -17,12 +17,12 @@ class StatusesRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.status');
+        return __('noah-shop::noah-shop.status');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.status');
+        return __('noah-shop::noah-shop.status');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -40,10 +40,10 @@ class StatusesRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->heading(__('noah-cms::noah-cms.status'))
+            ->heading(__('noah-shop::noah-shop.status'))
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label(__('noah-cms::noah-cms.status'))
+                    ->label(__('noah-shop::noah-shop.status'))
                     ->formatStateUsing(function ($state) {
                         $enum = SurveyEntryStatus::tryFrom($state);
                         return $enum->getLabel();
@@ -53,11 +53,11 @@ class StatusesRelationManager extends RelationManager
                     ->searchable()
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('reason')
-                    ->label(__('noah-cms::noah-cms.content'))
+                    ->label(__('noah-shop::noah-shop.content'))
                     ->searchable()
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('noah-cms::noah-cms.created_at'))
+                    ->label(__('noah-shop::noah-shop.created_at'))
                     ->since()
                     ->toggleable(),
             ])

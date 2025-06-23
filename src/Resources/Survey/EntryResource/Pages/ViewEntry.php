@@ -21,7 +21,7 @@ class ViewEntry extends ViewRecord
         return [
             CommentsAction::make()
                 ->badgeColor('danger')
-                ->label(__('noah-cms::noah-cms.comments'))
+                ->label(__('noah-shop::noah-shop.comments'))
                 ->badge(fn(Model $record) => $record->getAttribute('comments_count')),
             ActionGroup::make([
                 UpdateSurveyEntryStatusAction::make(record: $this->record),

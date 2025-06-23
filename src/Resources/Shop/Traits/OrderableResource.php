@@ -40,7 +40,7 @@ trait OrderableResource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.order');
+        return __('noah-shop::noah-shop.order');
     }
 
     public static function getEloquentQuery(): Builder
@@ -60,10 +60,10 @@ trait OrderableResource
             ->columns(array_merge(static::getTableStartColumns(), \Sharenjoy\NoahCms\Utils\Table::make(static::getModel())))
             ->filters([
                 Filter::make('shipment')
-                    ->label(__('noah-cms::noah-cms.order_shipment_status'))
+                    ->label(__('noah-shop::noah-shop.order_shipment_status'))
                     ->form([
                         Select::make('shipment')
-                            ->label(__('noah-cms::noah-cms.order_shipment_status'))
+                            ->label(__('noah-shop::noah-shop.order_shipment_status'))
                             ->options(OrderShipmentStatus::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -75,16 +75,16 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['shipment'] ?? null) {
-                            return __('noah-cms::noah-cms.order_shipment_status') . ': ' . OrderShipmentStatus::tryFrom($data['shipment'])->getLabel();
+                            return __('noah-shop::noah-shop.order_shipment_status') . ': ' . OrderShipmentStatus::tryFrom($data['shipment'])->getLabel();
                         }
                         return null;
                     }),
 
                 Filter::make('delivery_provider')
-                    ->label(__('noah-cms::noah-cms.delivery_provider'))
+                    ->label(__('noah-shop::noah-shop.delivery_provider'))
                     ->form([
                         Select::make('delivery_provider')
-                            ->label(__('noah-cms::noah-cms.delivery_provider'))
+                            ->label(__('noah-shop::noah-shop.delivery_provider'))
                             ->options(DeliveryProvider::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -96,16 +96,16 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['delivery_provider'] ?? null) {
-                            return __('noah-cms::noah-cms.delivery_provider') . ': ' . DeliveryProvider::tryFrom($data['delivery_provider'])->getLabel();
+                            return __('noah-shop::noah-shop.delivery_provider') . ': ' . DeliveryProvider::tryFrom($data['delivery_provider'])->getLabel();
                         }
                         return null;
                     }),
 
                 Filter::make('delivery_type')
-                    ->label(__('noah-cms::noah-cms.activity.label.delivery_type'))
+                    ->label(__('noah-shop::noah-shop.activity.label.delivery_type'))
                     ->form([
                         Select::make('delivery_type')
-                            ->label(__('noah-cms::noah-cms.activity.label.delivery_type'))
+                            ->label(__('noah-shop::noah-shop.activity.label.delivery_type'))
                             ->options(DeliveryType::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -117,16 +117,16 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['delivery_type'] ?? null) {
-                            return __('noah-cms::noah-cms.activity.label.delivery_type') . ': ' . DeliveryType::tryFrom($data['delivery_type'])->getLabel();
+                            return __('noah-shop::noah-shop.activity.label.delivery_type') . ': ' . DeliveryType::tryFrom($data['delivery_type'])->getLabel();
                         }
                         return null;
                     }),
 
                 Filter::make('transaction')
-                    ->label(__('noah-cms::noah-cms.transaction_status'))
+                    ->label(__('noah-shop::noah-shop.transaction_status'))
                     ->form([
                         Select::make('transaction')
-                            ->label(__('noah-cms::noah-cms.transaction_status'))
+                            ->label(__('noah-shop::noah-shop.transaction_status'))
                             ->options(TransactionStatus::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -138,16 +138,16 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['transaction'] ?? null) {
-                            return __('noah-cms::noah-cms.transaction_status') . ': ' . TransactionStatus::tryFrom($data['transaction'])->getLabel();
+                            return __('noah-shop::noah-shop.transaction_status') . ': ' . TransactionStatus::tryFrom($data['transaction'])->getLabel();
                         }
                         return null;
                     }),
 
                 Filter::make('payment_provider')
-                    ->label(__('noah-cms::noah-cms.payment_provider'))
+                    ->label(__('noah-shop::noah-shop.payment_provider'))
                     ->form([
                         Select::make('payment_provider')
-                            ->label(__('noah-cms::noah-cms.payment_provider'))
+                            ->label(__('noah-shop::noah-shop.payment_provider'))
                             ->options(PaymentProvider::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -159,16 +159,16 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['payment_provider'] ?? null) {
-                            return __('noah-cms::noah-cms.payment_provider') . ': ' . PaymentProvider::tryFrom($data['payment_provider'])->getLabel();
+                            return __('noah-shop::noah-shop.payment_provider') . ': ' . PaymentProvider::tryFrom($data['payment_provider'])->getLabel();
                         }
                         return null;
                     }),
 
                 Filter::make('payment_method')
-                    ->label(__('noah-cms::noah-cms.activity.label.payment_method'))
+                    ->label(__('noah-shop::noah-shop.activity.label.payment_method'))
                     ->form([
                         Select::make('payment_method')
-                            ->label(__('noah-cms::noah-cms.activity.label.payment_method'))
+                            ->label(__('noah-shop::noah-shop.activity.label.payment_method'))
                             ->options(PaymentMethod::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -180,16 +180,16 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['payment_method'] ?? null) {
-                            return __('noah-cms::noah-cms.activity.label.payment_method') . ': ' . PaymentMethod::tryFrom($data['payment_method'])->getLabel();
+                            return __('noah-shop::noah-shop.activity.label.payment_method') . ': ' . PaymentMethod::tryFrom($data['payment_method'])->getLabel();
                         }
                         return null;
                     }),
 
                 Filter::make('invoice')
-                    ->label(__('noah-cms::noah-cms.invoice_type'))
+                    ->label(__('noah-shop::noah-shop.invoice_type'))
                     ->form([
                         Select::make('invoice')
-                            ->label(__('noah-cms::noah-cms.invoice_type'))
+                            ->label(__('noah-shop::noah-shop.invoice_type'))
                             ->options(InvoiceType::options()),
                     ])
                     ->query(function (Builder $query, array $data) {
@@ -201,7 +201,7 @@ trait OrderableResource
                     })
                     ->indicateUsing(function (array $data): ?string {
                         if ($data['invoice'] ?? null) {
-                            return __('noah-cms::noah-cms.invoice_type') . ': ' . InvoiceType::tryFrom($data['invoice'])->getLabel();
+                            return __('noah-shop::noah-shop.invoice_type') . ': ' . InvoiceType::tryFrom($data['invoice'])->getLabel();
                         }
                         return null;
                     }),
@@ -211,13 +211,13 @@ trait OrderableResource
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\Action::make('view_order_info_list')
                         ->icon('heroicon-o-document-text')
-                        ->label(__('noah-cms::noah-cms.view_order_info_list'))
+                        ->label(__('noah-shop::noah-shop.view_order_info_list'))
                         ->url(function ($record) {
                             return self::getUrl('info-list', ['record' => $record]);
                         }),
                     Tables\Actions\Action::make('view_order_picking_list')
                         ->icon('heroicon-o-document-text')
-                        ->label(__('noah-cms::noah-cms.view_order_picking_list'))
+                        ->label(__('noah-shop::noah-shop.view_order_picking_list'))
                         ->url(function ($record) {
                             return self::getUrl('picking-list', ['record' => $record]);
                         }),
@@ -233,19 +233,19 @@ trait OrderableResource
     {
         return $infolist
             ->schema([
-                Section::make(__('noah-cms::noah-cms.order'))
+                Section::make(__('noah-shop::noah-shop.order'))
                     ->schema([
                         OrderEntry::make(''),
                     ])
                     ->collapsible()
                     ->columnSpanFull(),
-                // \Filament\Infolists\Components\Section::make(__('noah-cms::noah-cms.order_items'))
+                // \Filament\Infolists\Components\Section::make(__('noah-shop::noah-shop.order_items'))
                 //     ->schema([
                 //         \Sharenjoy\NoahCms\Infolists\Components\OrderItemsEntry::make(''),
                 //     ])
                 //     ->collapsible()
                 //     ->columnSpanFull(),
-                Section::make(__('noah-cms::noah-cms.timeline'))
+                Section::make(__('noah-shop::noah-shop.timeline'))
                     ->schema([
                         Timeline::make()
                             ->searchable()
@@ -266,7 +266,7 @@ trait OrderableResource
                             ->itemIcon('updated-order-status', 'heroicon-o-arrows-right-left')
                             ->itemIconColor('updated-order-status', 'warning')
                             ->getRecordTitleUsing(OrderItem::class, function (OrderItem $model) {
-                                return $model->product->title . '(' . implode(',', $model->product_details['spec_detail_name'] ?? []) . ') x ' . $model->quantity . ' ' . __('noah-cms::noah-cms.activity.label.item_subtotal') . ' ' . currency_format($model->subtotal, $model->currency);
+                                return $model->product->title . '(' . implode(',', $model->product_details['spec_detail_name'] ?? []) . ') x ' . $model->quantity . ' ' . __('noah-shop::noah-shop.activity.label.item_subtotal') . ' ' . currency_format($model->subtotal, $model->currency);
                             })
                             ->getRecordTitleUsing(Invoice::class, function (Invoice $model) {
                                 return $model->type->getLabel();
@@ -280,32 +280,32 @@ trait OrderableResource
                             ->getRecordTitleUsing(OrderShipment::class, function (OrderShipment $model) {
                                 return $model->provider->getLabel() . ' ' . $model->delivery_type->getLabel() . ' ' . str_replace('<br>', ' ', DisplayOrderShipmentDetail::run($model));
                             })
-                            ->attributeLabel('delivery_type', __('noah-cms::noah-cms.activity.label.delivery_type'))
-                            ->attributeLabel('name', __('noah-cms::noah-cms.activity.label.name'))
-                            ->attributeLabel('calling_code', __('noah-cms::noah-cms.activity.label.calling_code'))
-                            ->attributeLabel('mobile', __('noah-cms::noah-cms.activity.label.mobile'))
-                            ->attributeLabel('country', __('noah-cms::noah-cms.activity.label.country'))
-                            ->attributeLabel('postcode', __('noah-cms::noah-cms.activity.label.postcode'))
-                            ->attributeLabel('city', __('noah-cms::noah-cms.activity.label.city'))
-                            ->attributeLabel('district', __('noah-cms::noah-cms.activity.label.district'))
-                            ->attributeLabel('address', __('noah-cms::noah-cms.activity.label.address'))
-                            ->attributeLabel('pickup_store_no', __('noah-cms::noah-cms.activity.label.pickup_store_no'))
-                            ->attributeLabel('pickup_store_name', __('noah-cms::noah-cms.activity.label.pickup_store_name'))
-                            ->attributeLabel('pickup_store_address', __('noah-cms::noah-cms.activity.label.pickup_store_address'))
-                            ->attributeLabel('pickup_retail_name', __('noah-cms::noah-cms.activity.label.pickup_retail_name'))
-                            ->attributeLabel('postoffice_delivery_code', __('noah-cms::noah-cms.activity.label.postoffice_delivery_code'))
-                            ->attributeLabel('provider', __('noah-cms::noah-cms.activity.label.provider'))
-                            ->attributeLabel('status', __('noah-cms::noah-cms.activity.label.status'))
-                            ->attributeLabel('price', __('noah-cms::noah-cms.activity.label.price'))
-                            ->attributeLabel('discount', __('noah-cms::noah-cms.activity.label.discount'))
-                            ->attributeLabel('total_price', __('noah-cms::noah-cms.activity.label.total_price'))
-                            ->attributeLabel('donate_code', __('noah-cms::noah-cms.activity.label.donate_code'))
-                            ->attributeLabel('holder_code', __('noah-cms::noah-cms.activity.label.holder_code'))
-                            ->attributeLabel('holder_type', __('noah-cms::noah-cms.activity.label.holder_type'))
-                            ->attributeLabel('company_title', __('noah-cms::noah-cms.activity.label.company_title'))
-                            ->attributeLabel('company_code', __('noah-cms::noah-cms.activity.label.company_code'))
-                            ->attributeLabel('type', __('noah-cms::noah-cms.activity.label.type'))
-                            ->attributeLabel('payment_method', __('noah-cms::noah-cms.activity.label.payment_method')),
+                            ->attributeLabel('delivery_type', __('noah-shop::noah-shop.activity.label.delivery_type'))
+                            ->attributeLabel('name', __('noah-shop::noah-shop.activity.label.name'))
+                            ->attributeLabel('calling_code', __('noah-shop::noah-shop.activity.label.calling_code'))
+                            ->attributeLabel('mobile', __('noah-shop::noah-shop.activity.label.mobile'))
+                            ->attributeLabel('country', __('noah-shop::noah-shop.activity.label.country'))
+                            ->attributeLabel('postcode', __('noah-shop::noah-shop.activity.label.postcode'))
+                            ->attributeLabel('city', __('noah-shop::noah-shop.activity.label.city'))
+                            ->attributeLabel('district', __('noah-shop::noah-shop.activity.label.district'))
+                            ->attributeLabel('address', __('noah-shop::noah-shop.activity.label.address'))
+                            ->attributeLabel('pickup_store_no', __('noah-shop::noah-shop.activity.label.pickup_store_no'))
+                            ->attributeLabel('pickup_store_name', __('noah-shop::noah-shop.activity.label.pickup_store_name'))
+                            ->attributeLabel('pickup_store_address', __('noah-shop::noah-shop.activity.label.pickup_store_address'))
+                            ->attributeLabel('pickup_retail_name', __('noah-shop::noah-shop.activity.label.pickup_retail_name'))
+                            ->attributeLabel('postoffice_delivery_code', __('noah-shop::noah-shop.activity.label.postoffice_delivery_code'))
+                            ->attributeLabel('provider', __('noah-shop::noah-shop.activity.label.provider'))
+                            ->attributeLabel('status', __('noah-shop::noah-shop.activity.label.status'))
+                            ->attributeLabel('price', __('noah-shop::noah-shop.activity.label.price'))
+                            ->attributeLabel('discount', __('noah-shop::noah-shop.activity.label.discount'))
+                            ->attributeLabel('total_price', __('noah-shop::noah-shop.activity.label.total_price'))
+                            ->attributeLabel('donate_code', __('noah-shop::noah-shop.activity.label.donate_code'))
+                            ->attributeLabel('holder_code', __('noah-shop::noah-shop.activity.label.holder_code'))
+                            ->attributeLabel('holder_type', __('noah-shop::noah-shop.activity.label.holder_type'))
+                            ->attributeLabel('company_title', __('noah-shop::noah-shop.activity.label.company_title'))
+                            ->attributeLabel('company_code', __('noah-shop::noah-shop.activity.label.company_code'))
+                            ->attributeLabel('type', __('noah-shop::noah-shop.activity.label.type'))
+                            ->attributeLabel('payment_method', __('noah-shop::noah-shop.activity.label.payment_method')),
                     ])
                     ->collapsible()
                     ->columnSpanFull(),

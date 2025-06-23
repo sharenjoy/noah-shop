@@ -43,12 +43,12 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.promo');
+        return __('noah-shop::noah-shop.promo');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.objective');
+        return __('noah-shop::noah-shop.objective');
     }
 
     public static function form(Form $form): Form
@@ -59,7 +59,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                 Section::make('')
                     ->schema([
                         Select::make('type')
-                            ->label(__('noah-cms::noah-cms.type'))
+                            ->label(__('noah-shop::noah-shop.type'))
                             ->prefixIcon('heroicon-o-circle-stack')
                             ->options(ObjectiveType::class)
                             ->required()
@@ -72,8 +72,8 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                         Radio::make('product.all')
                             ->label(__('noah-shop::noah-shop.shop.promo.title.all_products'))
                             ->options([
-                                true => __('noah-cms::noah-cms.yes'),
-                                false => __('noah-cms::noah-cms.no'),
+                                true => __('noah-shop::noah-shop.yes'),
+                                false => __('noah-shop::noah-shop.no'),
                             ])
                             ->default(true)
                             ->inline()
@@ -102,7 +102,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                                     ->searchable(['name', 'slug'])
                                     ->multiple(),
                                 Select::make('product.add.products')
-                                    ->label(__('noah-cms::noah-cms.product'))
+                                    ->label(__('noah-shop::noah-shop.product'))
                                     ->options(function () {
                                         return Product::all()->pluck('title', 'id');
                                     })
@@ -131,7 +131,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                                     ->searchable(['name', 'slug'])
                                     ->multiple(),
                                 Select::make('product.remove.products')
-                                    ->label(__('noah-cms::noah-cms.product'))
+                                    ->label(__('noah-shop::noah-shop.product'))
                                     ->options(function () {
                                         return Product::all()->pluck('title', 'id');
                                     })
@@ -150,8 +150,8 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                         Radio::make('user.all')
                             ->label(__('noah-shop::noah-shop.shop.promo.title.all_users'))
                             ->options([
-                                true => __('noah-cms::noah-cms.yes'),
-                                false => __('noah-cms::noah-cms.no'),
+                                true => __('noah-shop::noah-shop.yes'),
+                                false => __('noah-shop::noah-shop.no'),
                             ])
                             ->default(true)
                             ->inline()
@@ -191,18 +191,18 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                                     ->columns(4)
                                     ->schema([
                                         Select::make('user.parameter.location.country')
-                                            ->label(__('noah-cms::noah-cms.activity.label.country'))
+                                            ->label(__('noah-shop::noah-shop.activity.label.country'))
                                             ->options(FetchCountryRelatedSelectOptions::run('country'))
                                             ->searchable()
                                             ->live(),
                                         Select::make('user.parameter.location.city')
-                                            ->label(__('noah-cms::noah-cms.activity.label.city'))
+                                            ->label(__('noah-shop::noah-shop.activity.label.city'))
                                             ->visible(fn(Get $get): bool => $get('user.parameter.location.country') == 'Taiwan')
                                             ->options(FetchAddressRelatedSelectOptions::run('city'))
                                             ->searchable()
                                             ->live(),
                                         Select::make('user.parameter.location.district')
-                                            ->label(__('noah-cms::noah-cms.activity.label.district'))
+                                            ->label(__('noah-shop::noah-shop.activity.label.district'))
                                             ->options(fn(Get $get) => FetchAddressRelatedSelectOptions::run('district', $get('user.parameter.location.city')))
                                             ->searchable()
                                             ->visible(fn(Get $get): bool => $get('user.parameter.location.country') == 'Taiwan'),
@@ -215,7 +215,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                             ->visible(fn(Get $get): bool => !$get('user.all'))
                             ->schema([
                                 Select::make('user.add.user_levels')
-                                    ->label(__('noah-cms::noah-cms.user_level'))
+                                    ->label(__('noah-shop::noah-shop.user_level'))
                                     ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.user_level')))
                                     ->preload()
                                     ->prefixIcon('heroicon-c-chart-bar')
@@ -231,7 +231,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                                     ->searchable(['name', 'slug'])
                                     ->multiple(),
                                 Select::make('user.add.users')
-                                    ->label(__('noah-cms::noah-cms.user'))
+                                    ->label(__('noah-shop::noah-shop.user'))
                                     ->options(User::all()->pluck('name', 'id'))
                                     ->searchable(['name', 'email'])
                                     ->preload()
@@ -242,7 +242,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                             ->label(__('noah-shop::noah-shop.shop.promo.title.remove_users'))
                             ->schema([
                                 Select::make('user.remove.user_levels')
-                                    ->label(__('noah-cms::noah-cms.user_level'))
+                                    ->label(__('noah-shop::noah-shop.user_level'))
                                     ->helperText(new HtmlString(__('noah-shop::noah-shop.shop.promo.help.user_level')))
                                     ->preload()
                                     ->prefixIcon('heroicon-c-chart-bar')
@@ -258,7 +258,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                                     ->searchable(['name', 'slug'])
                                     ->multiple(),
                                 Select::make('user.remove.users')
-                                    ->label(__('noah-cms::noah-cms.user'))
+                                    ->label(__('noah-shop::noah-shop.user'))
                                     ->options(User::all()->pluck('name', 'id'))
                                     ->searchable(['name', 'email'])
                                     ->preload()
@@ -288,7 +288,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ActionGroup::make(array_merge(static::getTableActions(), [
                     Tables\Actions\Action::make('dispatch')
-                        ->label(__('noah-cms::noah-cms.start_generate'))
+                        ->label(__('noah-shop::noah-shop.start_generate'))
                         ->action(fn(Objective $record) => dispatch(ResolveObjectiveTarget::makeJob($record)))
                         ->requiresConfirmation()
                         ->icon('heroicon-o-play'),
@@ -297,7 +297,7 @@ class ObjectiveResource extends Resource implements HasShieldPermissions
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make(array_merge(static::getBulkActions(), [
                     Tables\Actions\BulkAction::make('dispatch')
-                        ->label(__('noah-cms::noah-cms.start_generate'))
+                        ->label(__('noah-shop::noah-shop.start_generate'))
                         ->action(function ($records) {
                             foreach ($records as $record) {
                                 dispatch(ResolveObjectiveTarget::makeJob($record));

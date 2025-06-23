@@ -28,12 +28,12 @@ class ProductSpecificationResource extends Resource implements HasShieldPermissi
 
     public static function getNavigationGroup(): ?string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.specification');
+        return __('noah-shop::noah-shop.specification');
     }
 
     public static function form(Form $form): Form
@@ -51,7 +51,7 @@ class ProductSpecificationResource extends Resource implements HasShieldPermissi
             ->columns(array_merge(static::getTableStartColumns(), \Sharenjoy\NoahCms\Utils\Table::make(static::getModel())))
             ->filters(array_merge([
                 ValueRangeFilter::make('price')
-                    ->label(__('noah-cms::noah-cms.price'))
+                    ->label(__('noah-shop::noah-shop.price'))
                     ->query(function ($query, $data) {
                         if (empty($data['range_condition'])) {
                             return;
@@ -110,7 +110,7 @@ class ProductSpecificationResource extends Resource implements HasShieldPermissi
                         }
                     }),
                 ValueRangeFilter::make('stock')
-                    ->label(__('noah-cms::noah-cms.stock'))
+                    ->label(__('noah-shop::noah-shop.stock'))
                     ->query(function ($query, $data) {
                         if (empty($data['range_condition'])) {
                             return;
@@ -181,7 +181,7 @@ class ProductSpecificationResource extends Resource implements HasShieldPermissi
                 Tables\Actions\BulkActionGroup::make([]),
             ])
             ->groups([
-                Group::make('product_id')->label(__('noah-cms::noah-cms.product_title'))->collapsible(),
+                Group::make('product_id')->label(__('noah-shop::noah-shop.product_title'))->collapsible(),
             ])
             ->reorderable(false);
     }

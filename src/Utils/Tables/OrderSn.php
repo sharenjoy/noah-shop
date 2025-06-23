@@ -15,7 +15,7 @@ class OrderSn extends TableAbstract implements TableInterface
             ->html()
             ->sortable()
             ->size(TextColumnSize::Medium)
-            ->label(__('noah-cms::noah-cms.order_sn'))
+            ->label(__('noah-shop::noah-shop.order_sn'))
             ->toggleable(isToggledHiddenByDefault: $this->content['isToggledHiddenByDefault'] ?? false);
     }
 }

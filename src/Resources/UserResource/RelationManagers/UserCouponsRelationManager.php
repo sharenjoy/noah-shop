@@ -22,12 +22,12 @@ class UserCouponsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.coupon_promo');
+        return __('noah-shop::noah-shop.coupon_promo');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.coupon_promo');
+        return __('noah-shop::noah-shop.coupon_promo');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -46,7 +46,7 @@ class UserCouponsRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(UserCoupon $record): string => "({$record->id}) {$record->code}")
-            ->heading(__('noah-cms::noah-cms.coupon_promo'))
+            ->heading(__('noah-shop::noah-shop.coupon_promo'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(UserCoupon::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(UserCoupon::class))
             ->headerActions([
@@ -57,7 +57,7 @@ class UserCouponsRelationManager extends RelationManager
                 // Tables\Actions\DetachAction::make(),
                 // Tables\Actions\EditAction::make(),
                 RelationManagerAction::make('user-coupon-status-relation-manager')
-                    ->label(__('noah-cms::noah-cms.user_coupon_statuses'))
+                    ->label(__('noah-shop::noah-shop.user_coupon_statuses'))
                     ->icon('heroicon-o-ticket')
                     ->relationManager(UserCouponStatusesRelationManager::make()),
                 Tables\Actions\DeleteAction::make(),

@@ -20,7 +20,7 @@ class ShippedOrderResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.shipped_order');
+        return __('noah-shop::noah-shop.shipped_order');
     }
 
     public static function getBulkActions(): array

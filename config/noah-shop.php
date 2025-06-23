@@ -3,6 +3,10 @@
 // config for Sharenjoy/NoahShop
 return [
 
+    'models' => [
+        //
+    ],
+
     'plugins' => [
         'resources' => [
             \Sharenjoy\NoahShop\Resources\Survey\AnswerResource::class,

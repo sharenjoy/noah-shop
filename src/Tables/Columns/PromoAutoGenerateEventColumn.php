@@ -6,5 +6,5 @@ use Filament\Tables\Columns\TextColumn;
 
 class PromoAutoGenerateEventColumn extends TextColumn
 {
-    protected string $view = 'noah-cms::tables.columns.promo-auto-generate-event';
+    protected string $view = 'noah-shop::tables.columns.promo-auto-generate-event';
 }

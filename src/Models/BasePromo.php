@@ -99,7 +99,7 @@ class BasePromo extends Model
                 'published_at' => Section::make()->schema([
                     DateTimePicker::make('published_at')
                         ->displayFormat('Y-m-d H:i:s') // 顯示格式
-                        ->label(__('noah-cms::noah-cms.published_at'))
+                        ->label(__('noah-shop::noah-shop.published_at'))
                         ->placeholder('2020-03-18 09:48:00')
                         ->prefixIcon('heroicon-o-clock')
                         ->format('Y-m-d H:i:s')
@@ -132,7 +132,7 @@ class BasePromo extends Model
             'title' => ['description' => true],
             'slug' => [],
             'promo' => PromoTypeColumn::make('type')
-                ->label(__('noah-cms::noah-cms.promo'))
+                ->label(__('noah-shop::noah-shop.promo'))
                 ->toggleable(),
             'promo_event' => PromoAutoGenerateEventColumn::make('auto_generate_type')
                 ->label(__('noah-shop::noah-shop.shop.promo.title.combined') . '/' . __('noah-shop::noah-shop.shop.promo.title.auto_generate_type'))

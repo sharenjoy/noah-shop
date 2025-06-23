@@ -47,7 +47,7 @@ class OrderItem extends Model
             'product.title' => ['alias' => 'belongs_to', 'label' => 'product_title', 'relation' => 'product'],
             'productSpecification.spec_detail_name' => ['alias' => 'belongs_to', 'label' => 'spec_detail_name', 'relation' => 'productSpecification'],
             'type' => TextColumn::make('type')
-                ->label(__('noah-cms::noah-cms.type'))
+                ->label(__('noah-shop::noah-shop.type'))
                 ->sortable()
                 ->searchable()
                 ->badge(OrderItemType::class),
@@ -56,13 +56,13 @@ class OrderItem extends Model
             'currency' => [],
             'quantity' => ['type' => 'number'],
             'order_item_subtotal' => TextColumn::make('id')
-                ->label(__('noah-cms::noah-cms.subtotal'))
+                ->label(__('noah-shop::noah-shop.subtotal'))
                 ->sortable()
                 ->formatStateUsing(function ($state, $record) {
                     return currency_format($record->subtotal, $record->currency);
                 }),
             'weight' => TextColumn::make('id')
-                ->label(__('noah-cms::noah-cms.order_item_weight'))
+                ->label(__('noah-shop::noah-shop.order_item_weight'))
                 ->sortable()
                 ->formatStateUsing(function ($state, $record) {
                     return number_format($record->productSpecification->weight * $record->quantity) . '(g)';

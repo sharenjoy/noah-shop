@@ -13,6 +13,6 @@ class ViewOrderInfoList extends BaseViewOrderLists
 
     public function getTitle(): string
     {
-        return __('noah-cms::noah-cms.view_order_info_list');
+        return __('noah-shop::noah-shop.view_order_info_list');
     }
 }

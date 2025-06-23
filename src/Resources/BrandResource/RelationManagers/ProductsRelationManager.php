@@ -21,12 +21,12 @@ class ProductsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.product');
+        return __('noah-shop::noah-shop.product');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -45,7 +45,7 @@ class ProductsRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(Product $record): string => "({$record->id}) {$record->title}")
-            ->heading(__('noah-cms::noah-cms.product'))
+            ->heading(__('noah-shop::noah-shop.product'))
             ->columns(array_merge(static::getTableStartColumns(ProductResource::class), \Sharenjoy\NoahCms\Utils\Table::make(Product::class)))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(Product::class))
             ->headerActions([

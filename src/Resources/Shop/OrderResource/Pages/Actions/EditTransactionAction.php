@@ -44,13 +44,13 @@ class EditTransactionAction
                     Grid::make(2)
                         ->schema([
                             Select::make('transaction.provider')
-                                ->label(__('noah-cms::noah-cms.activity.label.provider'))
+                                ->label(__('noah-shop::noah-shop.activity.label.provider'))
                                 ->options(PaymentProvider::class)
                                 ->required()
                                 ->live(),
 
                             Select::make('transaction.payment_method')
-                                ->label(__('noah-cms::noah-cms.activity.label.payment_method'))
+                                ->label(__('noah-shop::noah-shop.activity.label.payment_method'))
                                 ->options(PaymentMethod::class)
                                 ->required()
                                 ->live(),
@@ -65,13 +65,13 @@ class EditTransactionAction
             //             ->schema([
             //                 TextInput::make('transaction.atm_code')
             //                     ->required()
-            //                     ->label(__('noah-cms::noah-cms.activity.label.atm_code')),
+            //                     ->label(__('noah-shop::noah-shop.activity.label.atm_code')),
             //                 DateTimePicker::make('transaction.expired_at')
             //                     ->required()
             //                     ->prefixIcon('heroicon-o-clock')
             //                     ->format('Y-m-d H:i:s')
             //                     ->native(false)
-            //                     ->label(__('noah-cms::noah-cms.activity.label.expired_at')),
+            //                     ->label(__('noah-shop::noah-shop.activity.label.expired_at')),
             //             ]),
             //     ])
             //     ->visible(fn(Get $get): bool => $get('transaction.payment_method') == PaymentMethod::ATM->value),

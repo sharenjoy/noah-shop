@@ -53,7 +53,7 @@ class UserLevelStatus extends Model
             'left' => [
                 'status' => Section::make('')->schema([
                     Select::make('status')
-                        ->label(__('noah-cms::noah-cms.status'))
+                        ->label(__('noah-shop::noah-shop.status'))
                         ->required()
                         ->options(UserLevelStatusEnum::class),
                 ]),

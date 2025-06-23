@@ -27,7 +27,7 @@ class EditProductSpecification extends EditRecord
             StoreRecordBackToProductSpecs::run($data['spec_detail_name'] ?? [], $this->record->product, 'edit', $this->record);
         } catch (\Exception $e) {
             Notification::make()
-                ->title(__('noah-cms::noah-cms.error'))
+                ->title(__('noah-shop::noah-shop.error'))
                 ->body($e->getMessage())
                 ->danger()
                 ->send();

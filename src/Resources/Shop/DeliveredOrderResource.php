@@ -20,7 +20,7 @@ class DeliveredOrderResource extends Resource implements HasShieldPermissions
 
     public static function getModelLabel(): string
     {
-        return __('noah-cms::noah-cms.delivered_order');
+        return __('noah-shop::noah-shop.delivered_order');
     }
 
     public static function getNavigationBadge(): ?string

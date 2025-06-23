@@ -51,8 +51,8 @@ class CoinMutation extends Model
                 'amount' => Section::make()->schema([
                     TextInput::make('amount')
                         ->numeric()
-                        ->placeholder(__('noah-cms::noah-cms.user_coin'))
-                        ->label(__('noah-cms::noah-cms.user_coin'))
+                        ->placeholder(__('noah-shop::noah-shop.user_coin'))
+                        ->label(__('noah-shop::noah-shop.user_coin'))
                         ->helperText('數值可以是正數或負數，正數表示增加，負數表示減少')
                         ->required()
                         ->rules(['required', 'numeric']),
@@ -69,7 +69,7 @@ class CoinMutation extends Model
             'order.sn' => ['alias' => 'belongs_to', 'label' => 'order_sn', 'relation' => 'order'],
             'promo.title' => ['alias' => 'belongs_to', 'label' => 'promo', 'relation' => 'promo'],
             'type' => TextColumn::make('type')
-                ->label(__('noah-cms::noah-cms.type'))
+                ->label(__('noah-shop::noah-shop.type'))
                 ->sortable()
                 ->searchable()
                 ->badge(CoinType::class),

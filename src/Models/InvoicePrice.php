@@ -37,7 +37,7 @@ class InvoicePrice extends Model
             'promo.title' => ['alias' => 'belongs_to', 'label' => 'promo', 'relation' => 'promo'],
             'user.name' => ['alias' => 'belongs_to', 'label' => 'administrator', 'relation' => 'user', 'relation_column' => 'admin_id'],
             'type' => TextColumn::make('type')
-                ->label(__('noah-cms::noah-cms.invoice_price_type'))
+                ->label(__('noah-shop::noah-shop.invoice_price_type'))
                 ->sortable()
                 ->searchable()
                 ->badge(InvoicePriceType::class),

@@ -22,7 +22,7 @@ class ViewOrder extends ViewRecord
     {
         return [
             CommentsAction::make()
-                ->label(__('noah-cms::noah-cms.comments'))
+                ->label(__('noah-shop::noah-shop.comments'))
                 ->badgeColor('danger')
                 ->badge(fn(Model $record) => $record->getAttribute('comments_count')),
             ActionGroup::make([

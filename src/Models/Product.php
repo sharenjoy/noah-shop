@@ -84,31 +84,31 @@ class Product extends Model implements Sortable
                 'check' => Section::make()->schema([
                     'provider' => CheckboxList::make('product_limit')
                         ->options(DeliveryProvider::visibleOptions())
-                        ->label(__('noah-cms::noah-cms.delivery_provider_limit')),
+                        ->label(__('noah-shop::noah-shop.delivery_provider_limit')),
                     'delivery' => CheckboxList::make('product_limit')
                         ->options(DeliveryType::visibleOptions())
-                        ->label(__('noah-cms::noah-cms.delivery_type_limit')),
+                        ->label(__('noah-shop::noah-shop.delivery_type_limit')),
                     'product' => CheckboxList::make('product_limit')
                         ->options(ProductLimit::visibleOptions())
-                        ->label(__('noah-cms::noah-cms.product_limit')),
+                        ->label(__('noah-shop::noah-shop.product_limit')),
                 ])->columns(3),
                 'stock' => Section::make()->schema([
                     'stock_method' => CheckboxList::make('stock_method')
                         ->options(StockMethod::visibleOptions())
-                        ->label(__('noah-cms::noah-cms.stock_method')),
+                        ->label(__('noah-shop::noah-shop.stock_method')),
                 ])->columns(3),
                 'is_single_spec' => ['alias' => 'yes_no', 'required' => true, 'disable' => 'edit', 'live' => true],
                 'specs' => Section::make()->schema([
-                    Placeholder::make(__('noah-cms::noah-cms.single_spec_selected'))
+                    Placeholder::make(__('noah-shop::noah-shop.single_spec_selected'))
                         ->visible(fn(Get $get): bool => $get('is_single_spec') == true),
                     Repeater::make('specs')
-                        ->label(__('noah-cms::noah-cms.specification'))
+                        ->label(__('noah-shop::noah-shop.specification'))
                         ->schema([
-                            TextInput::make('spec_name')->label(__('noah-cms::noah-cms.spec_name'))->required(),
+                            TextInput::make('spec_name')->label(__('noah-shop::noah-shop.spec_name'))->required(),
                             Repeater::make('spec_details')
-                                ->label(__('noah-cms::noah-cms.spec_details'))
+                                ->label(__('noah-shop::noah-shop.spec_details'))
                                 ->schema([
-                                    TextInput::make('detail_name')->label(__('noah-cms::noah-cms.spec_detail_name'))->required(),
+                                    TextInput::make('detail_name')->label(__('noah-shop::noah-shop.spec_detail_name'))->required(),
                                 ])
                                 ->columns(1)
                         ])

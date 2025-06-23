@@ -8,7 +8,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Lorisleiva\Actions\Concerns\AsAction;
 use Sharenjoy\NoahShop\Models\User;
-use Sharenjoy\NoahCms\Pages\Settings\Settings;
+use Sharenjoy\NoahShop\Pages\Settings\SyntaxSettings;
 
 class GetDeCryptExtendCondition
 {
@@ -51,7 +51,7 @@ class GetDeCryptExtendCondition
                     ->title($type . '條件設定解碼錯誤')
                     ->body($e->getMessage())
                     ->actions([
-                        Action::make('View')->url(Settings::getUrl(['tab' => '-code-tab'])),
+                        Action::make('View')->url(SyntaxSettings::getUrl(['tab' => '-code-tab'])),
                     ])
                     ->sendToDatabase(User::query()->whereIn('email', config('noah-cms.creator_emails'))->get());
             }

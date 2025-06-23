@@ -21,6 +21,8 @@ class NoahShopServiceProvider extends PackageServiceProvider
             ->hasRoute('web')
             ->hasConfigFile([
                 'noah-shop',
+                'filament-shield',
+                'countries',
             ])
             ->hasViews()
             ->hasTranslations()

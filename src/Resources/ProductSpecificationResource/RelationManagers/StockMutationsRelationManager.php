@@ -20,12 +20,12 @@ class StockMutationsRelationManager extends RelationManager
 
     public static function getTitle(Model $ownerRecord, string $pageClass): string
     {
-        return __('noah-cms::noah-cms.stock');
+        return __('noah-shop::noah-shop.stock');
     }
 
     protected static function getRecordLabel(): ?string
     {
-        return __('noah-cms::noah-cms.stock');
+        return __('noah-shop::noah-shop.stock');
     }
 
     public static function getBadge(Model $ownerRecord, string $pageClass): ?string
@@ -44,7 +44,7 @@ class StockMutationsRelationManager extends RelationManager
     {
         return $table
             ->recordTitle(fn(StockMutationModel $record): string => "({$record->id}) {$record->no}")
-            ->heading(__('noah-cms::noah-cms.stock'))
+            ->heading(__('noah-shop::noah-shop.stock'))
             ->searchable(false)
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(StockMutationModel::class))
             ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(StockMutationModel::class))

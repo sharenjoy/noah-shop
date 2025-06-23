@@ -76,6 +76,6 @@ class Answer extends Model
 
     protected static function newFactory()
     {
-        return \Sharenjoy\NoahCms\Database\Factories\Survey\AnswerFactory::new();
+        return \Sharenjoy\NoahShop\Database\Factories\Survey\AnswerFactory::new();
     }
 }

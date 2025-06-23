@@ -80,7 +80,7 @@ class Survey extends Model
                 'published_at' => FormSection::make()->schema([
                     DateTimePicker::make('published_at')
                         ->displayFormat('Y-m-d H:i:s') // 顯示格式
-                        ->label(__('noah-cms::noah-cms.published_at'))
+                        ->label(__('noah-shop::noah-shop.published_at'))
                         ->placeholder('2020-03-18 09:48:00')
                         ->prefixIcon('heroicon-o-clock')
                         ->required()
@@ -304,6 +304,6 @@ class Survey extends Model
 
     protected static function newFactory()
     {
-        return \Sharenjoy\NoahCms\Database\Factories\Survey\SurveyFactory::new();
+        return \Sharenjoy\NoahShop\Database\Factories\Survey\SurveyFactory::new();
     }
 }

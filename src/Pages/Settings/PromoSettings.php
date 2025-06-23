@@ -22,12 +22,12 @@ class PromoSettings extends BaseSettings
 
     public static function getNavigationGroup(): string
     {
-        return __('noah-cms::noah-cms.settings');
+        return __('noah-shop::noah-shop.settings');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('noah-cms::noah-cms.promo');
+        return __('noah-shop::noah-shop.promo');
     }
 
     public function schema(): array|Closure

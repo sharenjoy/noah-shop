@@ -48,17 +48,17 @@ class Address extends Model
         return [
             'left' => [
                 'country' => Select::make('country')
-                    ->label(__('noah-cms::noah-cms.activity.label.country'))
+                    ->label(__('noah-shop::noah-shop.activity.label.country'))
                     ->options(FetchCountryRelatedSelectOptions::run('country'))
                     ->searchable()
                     ->required()
                     ->live(),
                 'postcode' => TextInput::make('postcode')
-                    ->label(__('noah-cms::noah-cms.activity.label.postcode'))
+                    ->label(__('noah-shop::noah-shop.activity.label.postcode'))
                     ->placeholder('100')
                     ->required(),
                 'city' => Select::make('city')
-                    ->label(__('noah-cms::noah-cms.activity.label.city'))
+                    ->label(__('noah-shop::noah-shop.activity.label.city'))
                     ->visible(fn(Get $get): bool => $get('country') == 'Taiwan')
                     ->placeholder('台北市')
                     ->options(FetchAddressRelatedSelectOptions::run('city'))
@@ -66,7 +66,7 @@ class Address extends Model
                     ->required()
                     ->live(),
                 'district' => Select::make('district')
-                    ->label(__('noah-cms::noah-cms.activity.label.district'))
+                    ->label(__('noah-shop::noah-shop.activity.label.district'))
                     ->options(fn(Get $get) => FetchAddressRelatedSelectOptions::run('district', $get('city')))
                     ->placeholder('中正區')
                     ->searchable()
@@ -74,7 +74,7 @@ class Address extends Model
                     ->visible(fn(Get $get): bool => $get('country') == 'Taiwan'),
                 'address' => Textarea::make('address')
                     ->columnSpanFull()
-                    ->label(__('noah-cms::noah-cms.activity.label.address'))
+                    ->label(__('noah-shop::noah-shop.activity.label.address'))
                     ->placeholder('中正路1號')
                     ->rows(2)
                     ->required(),
