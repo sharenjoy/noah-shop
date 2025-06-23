@@ -30,6 +30,9 @@
         "pestphp/pest-plugin-laravel": "^3.0"
     },
     "autoload": {
+        "files": [
+            "src/Utils/helpers.php"
+        ],
         "psr-4": {
             "Sharenjoy\\NoahShop\\": "src/",
             "Sharenjoy\\NoahShop\\Database\\Factories\\": "database/factories/"

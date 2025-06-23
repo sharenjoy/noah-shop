@@ -23,6 +23,7 @@ class NoahShopServiceProvider extends PackageServiceProvider
                 'noah-shop',
                 'filament-shield',
                 'countries',
+                'currency',
             ])
             ->hasViews()
             ->hasTranslations()
