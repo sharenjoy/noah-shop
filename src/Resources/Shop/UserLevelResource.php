@@ -17,13 +17,11 @@ use Illuminate\Support\HtmlString;
 use Sharenjoy\NoahShop\Models\UserLevel;
 use Sharenjoy\NoahShop\Resources\Shop\UserLevelResource\Pages;
 use Sharenjoy\NoahShop\Resources\Shop\UserLevelResource\RelationManagers\UsersRelationManager;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 use Sharenjoy\NoahCms\Resources\Traits\NoahBaseResource;
 
 class UserLevelResource extends Resource implements HasShieldPermissions
 {
     use NoahBaseResource;
-    use CanViewShop;
 
     protected static ?string $model = UserLevel::class;
 

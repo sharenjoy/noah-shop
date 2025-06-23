@@ -13,12 +13,9 @@ use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahShop\Enums\CoinType;
 use Sharenjoy\NoahShop\Models\CoinMutation;
 use Sharenjoy\NoahShop\Models\User;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 
 class PointCoinMutationsRelationManager extends RelationManager
 {
-    use CanViewShop;
-
     protected static string $relationship = 'pointCoinMutations';
 
     protected static ?string $icon = 'heroicon-o-cube';

@@ -15,12 +15,9 @@ use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
 use Sharenjoy\NoahShop\Enums\UserLevelStatus as UserLevelStatusEnum;
 use Sharenjoy\NoahShop\Models\User;
 use Sharenjoy\NoahShop\Models\UserLevelStatus;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 
 class UserLevelStatusesRelationManager extends RelationManager
 {
-    use CanViewShop;
-
     protected static string $relationship = 'userLevelStatuses';
 
     protected static ?string $icon = 'heroicon-o-chart-bar';

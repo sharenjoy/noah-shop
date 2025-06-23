@@ -8,12 +8,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Sharenjoy\NoahShop\Models\UserCouponStatus;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 
 class UserCouponStatusesRelationManager extends RelationManager
 {
-    use CanViewShop;
-
     protected static string $relationship = 'userCouponStatuses';
 
     protected static ?string $icon = 'heroicon-o-ticket';

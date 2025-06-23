@@ -10,12 +10,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Sharenjoy\NoahShop\Models\Address;
 use Sharenjoy\NoahShop\Models\User;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 
 class AddressesRelationManager extends RelationManager
 {
-    use CanViewShop;
-
     protected static string $relationship = 'addresses';
 
     protected static ?string $icon = 'heroicon-o-map-pin';

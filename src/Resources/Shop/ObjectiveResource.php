@@ -27,13 +27,11 @@ use Sharenjoy\NoahShop\Models\User;
 use Sharenjoy\NoahShop\Models\UserLevel;
 use Sharenjoy\NoahShop\Resources\Shop\ObjectiveResource\Pages;
 use Sharenjoy\NoahShop\Resources\Shop\ObjectiveResource\RelationManagers\PromosRelationManager;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 use Sharenjoy\NoahCms\Resources\Traits\NoahBaseResource;
 
 class ObjectiveResource extends Resource implements HasShieldPermissions
 {
     use NoahBaseResource;
-    use CanViewShop;
 
     protected static ?string $model = Objective::class;
 

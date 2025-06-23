@@ -16,13 +16,11 @@ use Illuminate\Support\HtmlString;
 use Sharenjoy\NoahShop\Models\Giftproduct;
 use Sharenjoy\NoahShop\Models\ProductSpecification;
 use Sharenjoy\NoahShop\Resources\GiftproductResource\Pages;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 use Sharenjoy\NoahCms\Resources\Traits\NoahBaseResource;
 
 class GiftproductResource extends Resource implements HasShieldPermissions
 {
     use NoahBaseResource;
-    use CanViewShop;
 
     protected static ?string $model = Giftproduct::class;
 

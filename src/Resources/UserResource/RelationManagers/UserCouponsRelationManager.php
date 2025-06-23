@@ -9,13 +9,10 @@ use Filament\Tables\Table;
 use Guava\FilamentModalRelationManagers\Actions\Table\RelationManagerAction;
 use Illuminate\Database\Eloquent\Model;
 use Sharenjoy\NoahShop\Models\UserCoupon;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 use Sharenjoy\NoahShop\Resources\UserResource\RelationManagers\UserCouponStatusesRelationManager;
 
 class UserCouponsRelationManager extends RelationManager
 {
-    use CanViewShop;
-
     protected static string $relationship = 'coupons';
 
     protected static ?string $icon = 'heroicon-o-ticket';

@@ -69,7 +69,7 @@ class UserLevelStatus extends Model
         return [
             'userLevel.title' =>  ['description' => true, 'alias' => 'belongs_to', 'label' => 'user_level', 'relation' => 'userLevel', 'relation_route' => 'shop.user-levels', 'relation_column' => 'user_level_id'],
             'user.name' =>  ['description' => true, 'alias' => 'belongs_to', 'label' => 'user', 'relation' => 'user'],
-            'status' => ['model' => 'UserLevelStatus'],
+            'status' => ['model' => 'UserLevel'],
             'started_at' => ['label' => 'shop.promo.title.started_at'],
             'expired_at' => ['label' => 'shop.promo.title.expired_at'],
             'created_at' => ['isToggledHiddenByDefault' => true],

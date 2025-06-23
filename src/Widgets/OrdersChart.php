@@ -4,12 +4,9 @@ namespace Sharenjoy\NoahShop\Widgets;
 
 use Filament\Widgets\ChartWidget;
 use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 
 class OrdersChart extends ChartWidget
 {
-    use CanViewShop;
-
     protected static ?string $heading = 'Orders per month';
 
     protected static ?int $sort = 1;

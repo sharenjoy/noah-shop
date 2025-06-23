@@ -29,14 +29,12 @@ use Sharenjoy\NoahShop\Models\Transaction;
 use Sharenjoy\NoahShop\Resources\Shop\OrderResource\RelationManagers\InvoicePricesRelationManager;
 use Sharenjoy\NoahShop\Resources\Shop\OrderResource\RelationManagers\OrderItemsRelationManager;
 use Sharenjoy\NoahShop\Resources\Shop\OrderResource\RelationManagers\UserRelationManager;
-use Sharenjoy\NoahShop\Resources\Traits\CanViewShop;
 use Sharenjoy\NoahCms\Resources\Traits\NoahBaseResource;
 use Spatie\Activitylog\Models\Activity;
 
 trait OrderableResource
 {
     use NoahBaseResource;
-    use CanViewShop;
 
     public static function getNavigationGroup(): ?string
     {
