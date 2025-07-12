@@ -10,7 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Get;
-use Sharenjoy\NoahShop\Actions\Shop\FetchAddressRelatedSelectOptions;
+use Sharenjoy\NoahCms\Actions\FetchAddressRelatedSelectOptions;
 use Sharenjoy\NoahShop\Actions\Shop\FetchCountryRelatedSelectOptions;
 use Sharenjoy\NoahShop\Enums\DeliveryProvider;
 use Sharenjoy\NoahShop\Enums\DeliveryType;

@@ -9,9 +9,9 @@ use Filament\Forms\Get;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Sharenjoy\NoahShop\Actions\Shop\FetchAddressRelatedSelectOptions;
-use Sharenjoy\NoahShop\Actions\Shop\FetchCountryRelatedSelectOptions;
+use Sharenjoy\NoahCms\Actions\FetchAddressRelatedSelectOptions;
 use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
+use Sharenjoy\NoahShop\Actions\Shop\FetchCountryRelatedSelectOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Address extends Model
