@@ -19,6 +19,11 @@ class OrderSettings extends BaseSettings
 
     protected static ?string $navigationIcon = null;
 
+    public function getTitle(): string
+    {
+        return __('noah-cms::noah-shop.order_setting');
+    }
+
     public static function getNavigationGroup(): string
     {
         return __('noah-shop::noah-shop.settings');

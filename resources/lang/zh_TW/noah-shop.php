@@ -159,6 +159,9 @@ return [
     'sku' => 'SKU',
     'comments' => '留言',
     'settings' => '設定',
+    'order_setting' => '訂單設定',
+    'syntax_setting' => '語法設定',
+    'promo_setting' => '促銷設定',
 
     'survey' => [
         'navigation' => [
