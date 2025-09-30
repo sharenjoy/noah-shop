@@ -21,7 +21,7 @@ class OrderSettings extends BaseSettings
 
     public function getTitle(): string
     {
-        return __('noah-cms::noah-shop.order_setting');
+        return __('noah-shop::noah-shop.order_setting');
     }
 
     public static function getNavigationGroup(): string
