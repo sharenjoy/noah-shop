@@ -16,7 +16,7 @@ return [
     'tenant_model' => null,
 
     'auth_provider_model' => [
-        'fqcn' => 'Sharenjoy\\NoahShop\\Models\\User',
+        'fqcn' => 'App\\Models\\User',
     ],
 
     'super_admin' => [
