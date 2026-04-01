@@ -65,6 +65,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         'birthday',
         'user_level_id',
         'notifications',
+        'preferences',
     ];
 
     protected $hidden = [
@@ -74,6 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
     protected $casts = [
         'notifications' => 'array',
+        'preferences' => 'array',
         'email_verified_at' => 'datetime',
         'birthday' => 'date',
     ];
