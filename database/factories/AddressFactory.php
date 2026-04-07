@@ -22,6 +22,9 @@ class AddressFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
+            'name' => fake('en')->name(),
+            'calling_code' => fake('en')->randomElement(['+1', '+886', '+86']),
+            'mobile' => fake('en')->phoneNumber(),
             'country' => fake('en')->country(),
             'city' => fake('en')->city(),
             'district' => fake('en')->state(),
