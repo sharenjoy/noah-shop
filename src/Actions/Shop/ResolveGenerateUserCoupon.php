@@ -33,7 +33,7 @@ class ResolveGenerateUserCoupon
     public function handle(Promo $promo, $userId = null): array
     {
         if (!$promo->generatable) {
-            return [false, __('noah-shop::noah-shop.shop.promo.title.notallowed_generatable')];
+            return [false, __('noah-shop::noah-shop.shop.promo.title.notallowed_assign')];
         }
 
         try {
@@ -48,7 +48,7 @@ class ResolveGenerateUserCoupon
 
                 if ($this->users->isEmpty()) {
                     throw new UserNotAllowPromoCouponAssigned(
-                        __('noah-shop::noah-shop.shop.promo.title.notallowed_generatable_to_user')
+                        __('noah-shop::noah-shop.shop.promo.title.notallowed_assign_to_user')
                     );
                 }
             }
@@ -62,17 +62,17 @@ class ResolveGenerateUserCoupon
         } catch (\Exception $e) {
             Notification::make()
                 ->danger()
-                ->title(__('noah-shop::noah-shop.shop.promo.title.generate_failed'))
+                ->title(__('noah-shop::noah-shop.shop.promo.title.assign_failed'))
                 ->body($e->getMessage())
                 ->actions([
                     Action::make('View')->url(CouponPromoResource::getUrl('edit', ['record' => $promo])),
                 ])
                 ->sendToDatabase(User::superAdmin()->get());
 
-            return [false, __('noah-shop::noah-shop.shop.promo.title.generate_failed')];
+            return [false, __('noah-shop::noah-shop.shop.promo.title.assign_failed')];
         }
 
-        return [true, __('noah-shop::noah-shop.shop.promo.title.generate_success')];
+        return [true, __('noah-shop::noah-shop.shop.promo.title.assign_success')];
     }
 
     protected function generateNeverCoupon()

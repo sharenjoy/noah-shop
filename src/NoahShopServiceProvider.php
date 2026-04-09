@@ -18,7 +18,7 @@ class NoahShopServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('noah-shop')
-            ->hasRoute('web')
+            ->hasRoutes(['web', 'api'])
             ->hasConfigFile([
                 'noah-shop',
                 'filament-shield',
