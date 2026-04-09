@@ -23,13 +23,14 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use Laravel\Sanctum\HasApiTokens;
 use Sharenjoy\NoahCms\Actions\GenerateUserSeriesNumber;
+use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
+use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahCms\Models\Role;
 use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
 use Sharenjoy\NoahCms\Models\Traits\HasTags;
 use Sharenjoy\NoahShop\Actions\Shop\FetchCountryRelatedSelectOptions;
-use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
-use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
 use Sharenjoy\NoahShop\Enums\ObjectiveType;
 use Sharenjoy\NoahShop\Enums\UserLevelStatus as EnumsUserLevelStatus;
 use Sharenjoy\NoahShop\Models\Address;
@@ -53,6 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     use HasRoles;
     use HasTags;
     use HasCoin;
+    use HasApiTokens;
 
     protected $fillable = [
         'name',
