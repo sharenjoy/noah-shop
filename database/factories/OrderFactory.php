@@ -119,7 +119,7 @@ class OrderFactory extends Factory
 
             $invoiceType = [
                 [
-                    'type' => 'persion',
+                    'type' => 'person',
                 ],
                 [
                     'type' => 'donate',

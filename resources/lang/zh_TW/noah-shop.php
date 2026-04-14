@@ -372,7 +372,7 @@ return [
                     'linepay' => 'LINEPay',
                 ],
                 'invoice' => [
-                    'persion' => '個人',
+                    'person' => '個人',
                     'donate' => '捐贈',
                     'holder' => '載具',
                     'company' => '公司',
@@ -434,7 +434,7 @@ return [
                     'linepay' => 'LINEPay',
                 ],
                 'invoice' => [
-                    'persion' => '個人',
+                    'person' => '個人',
                     'donate' => '捐贈',
                     'holder' => '載具',
                     'company' => '公司',
