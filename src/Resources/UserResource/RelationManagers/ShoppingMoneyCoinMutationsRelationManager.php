@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Sharenjoy\NoahCms\Actions\Shop\RoleCan;
 use Sharenjoy\NoahCms\Actions\Shop\ShopFeatured;
+use Sharenjoy\NoahCms\Utils\Filter;
 use Sharenjoy\NoahShop\Enums\CoinType;
 use Sharenjoy\NoahShop\Models\CoinMutation;
 use Sharenjoy\NoahShop\Models\User;
@@ -56,15 +57,16 @@ class ShoppingMoneyCoinMutationsRelationManager extends RelationManager
         return $table
             ->heading(__('noah-shop::noah-shop.user_shoppingmoney_record'))
             ->columns(\Sharenjoy\NoahCms\Utils\Table::make(CoinMutation::class))
-            ->filters(\Sharenjoy\NoahCms\Utils\Filter::make(CoinMutation::class))
+            ->filters(Filter::make(CoinMutation::class))
             ->searchable(false)
             ->headerActions([
                 Tables\Actions\CreateAction::make()->mutateFormDataUsing(function (array $data): array {
-                    $data['reference_type'] = User::class; // 設定建立者
+                    $data['reference_type'] = class_basename(User::class); // 設定建立者
                     $data['reference_id'] = Auth::user()->id; // 設定建立者
                     $data['type'] = CoinType::ShoppingMoney->value;
+
                     return $data;
-                })->visible(fn(): bool => RoleCan::run(role: 'super_admin')),
+                })->visible(fn (): bool => RoleCan::run(role: 'super_admin')),
                 // Tables\Actions\AttachAction::make()->preloadRecordSelect()->recordSelectSearchColumns(['code'])->multiple(),
             ])
             ->actions([

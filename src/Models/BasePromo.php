@@ -16,21 +16,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\HtmlString;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
-use Sharenjoy\NoahShop\Enums\ObjectiveType;
-use Sharenjoy\NoahShop\Enums\PromoAutoGenerateType;
-use Sharenjoy\NoahShop\Enums\PromoDiscountType;
-use Sharenjoy\NoahShop\Enums\PromoType;
-use Sharenjoy\NoahShop\Models\Giftproduct;
-use Sharenjoy\NoahShop\Models\Objective;
-use Sharenjoy\NoahShop\Models\OrderItem;
 use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
 use Sharenjoy\NoahCms\Models\Traits\HasMediaLibrary;
 use Sharenjoy\NoahCms\Models\Traits\HasMenus;
 use Sharenjoy\NoahCms\Models\Traits\HasTags;
-use Sharenjoy\NoahShop\Models\UserCoupon;
+use Sharenjoy\NoahCms\Utils\Media;
+use Sharenjoy\NoahShop\Database\Factories\PromoFactory;
+use Sharenjoy\NoahShop\Enums\ObjectiveType;
+use Sharenjoy\NoahShop\Enums\PromoAutoGenerateType;
+use Sharenjoy\NoahShop\Enums\PromoDiscountType;
+use Sharenjoy\NoahShop\Enums\PromoType;
 use Sharenjoy\NoahShop\Tables\Columns\PromoAutoGenerateEventColumn;
 use Sharenjoy\NoahShop\Tables\Columns\PromoTypeColumn;
-use Sharenjoy\NoahCms\Utils\Media;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Translatable\HasTranslations;
 
@@ -38,13 +35,13 @@ class BasePromo extends Model
 {
     use CommonModelTrait;
     use HasFactory;
-    use LogsActivity;
-    use SoftDeletes;
-    use HasTranslations;
     use HasMediaLibrary;
     use HasMenus;
-    use HasTags;
     use HasSEO;
+    use HasTags;
+    use HasTranslations;
+    use LogsActivity;
+    use SoftDeletes;
 
     protected $casts = [
         'type' => PromoType::class,
@@ -117,7 +114,7 @@ class BasePromo extends Model
                         ->prefixIcon('heroicon-o-clock')
                         ->format('Y-m-d H:i:s')
                         ->rules(['date', 'after_or_equal:published_at'])
-                        ->minDate(fn(Get $get) => $get('published_at'))
+                        ->minDate(fn (Get $get) => $get('published_at'))
                         ->native(false),
                 ]),
                 'menus' => [],
@@ -135,7 +132,7 @@ class BasePromo extends Model
                 ->label(__('noah-shop::noah-shop.promo'))
                 ->toggleable(),
             'promo_event' => PromoAutoGenerateEventColumn::make('auto_generate_type')
-                ->label(__('noah-shop::noah-shop.shop.promo.title.combined') . '/' . __('noah-shop::noah-shop.shop.promo.title.auto_generate_type'))
+                ->label(__('noah-shop::noah-shop.shop.promo.title.combined').'/'.__('noah-shop::noah-shop.shop.promo.title.auto_generate_type'))
                 ->toggleable(),
             'online' => ['type' => 'boolean', 'label' => 'online'],
             'is_active' => [],
@@ -149,7 +146,8 @@ class BasePromo extends Model
                     if ($record->forever) {
                         return '<div class="pb-2">永久有效</div>';
                     }
-                    return '<div><div class="pb-2">開始於 ' . $record->started_at->diffForHumans() . '<br>' . $record->started_at . '</div><div>到期於 ' . $record->expired_at->diffForHumans() . '<br>' . $record->expired_at . '</div></div>';
+
+                    return '<div><div class="pb-2">開始於 '.$record->started_at->diffForHumans().'<br>'.$record->started_at.'</div><div>到期於 '.$record->expired_at->diffForHumans().'<br>'.$record->expired_at.'</div></div>';
                 })
                 ->label(__('noah-shop::noah-shop.shop.promo.title.duration'))
                 ->toggleable(),
@@ -160,7 +158,6 @@ class BasePromo extends Model
     }
 
     /** RELACTIONS */
-
     public function promoTags(): MorphToMany
     {
         return $this
@@ -207,7 +204,6 @@ class BasePromo extends Model
     /** EVENTS */
 
     /** SEO */
-
     public function getDynamicSEOData(): SEOData
     {
         // TODO
@@ -225,10 +221,9 @@ class BasePromo extends Model
     }
 
     /** OTHERS */
-
     protected static function newFactory()
     {
-        return \Sharenjoy\NoahShop\Database\Factories\PromoFactory::new();
+        return PromoFactory::new();
     }
 
     /**
@@ -236,11 +231,12 @@ class BasePromo extends Model
      * 你如果覆寫這個 method，就能指定寫進 log 的是什麼類別
      * 所以不管外面操作的是 NewOrder、IssuedOrder，
      * log 記錄時都統一成 \Sharenjoy\NoahShop\Models\Order
+     *
      * @return string
      */
     public function getMorphClass()
     {
-        return \Sharenjoy\NoahShop\Models\Promo::class; // 你想要寫入 activity_log 裡的 class 名稱
+        return class_basename(Promo::class);
     }
 
     public function online(): Attribute
@@ -284,7 +280,6 @@ class BasePromo extends Model
 
     /**
      * 這個優惠券是否可以產生
-     * @return Attribute
      */
     public function generatable(): Attribute
     {

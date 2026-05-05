@@ -4,6 +4,9 @@ namespace Sharenjoy\NoahShop\Models;
 
 use Coolsam\NestedComments\Concerns\HasComments;
 use Coolsam\NestedComments\Concerns\HasReactions;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\IconColumn\IconColumnSize;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,24 +14,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Sharenjoy\NoahCms\Actions\GenerateSeriesNumber;
+use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
+use Sharenjoy\NoahShop\Database\Factories\OrderFactory;
 use Sharenjoy\NoahShop\Enums\OrderShipmentStatus;
 use Sharenjoy\NoahShop\Enums\OrderStatus;
 use Sharenjoy\NoahShop\Enums\TransactionStatus;
-use Sharenjoy\NoahShop\Models\Invoice;
-use Sharenjoy\NoahShop\Models\InvoicePrice;
-use Sharenjoy\NoahShop\Models\OrderItem;
-use Sharenjoy\NoahShop\Models\OrderShipment;
-use Sharenjoy\NoahCms\Models\Traits\CommonModelTrait;
-use Sharenjoy\NoahShop\Models\Transaction;
-use Sharenjoy\NoahShop\Models\User;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class BaseOrder extends Model
 {
     use CommonModelTrait;
+    use HasComments;
     use HasFactory;
     use LogsActivity;
-    use HasComments;
     // use HasReactions;
 
     protected $casts = [
@@ -45,7 +43,7 @@ class BaseOrder extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            if (!$model->sn) {
+            if (! $model->sn) {
                 $model->sn = GenerateSeriesNumber::run('order');
             }
         });
@@ -59,18 +57,18 @@ class BaseOrder extends Model
     protected function tableFields(): array
     {
         return [
-            'notes' => \Filament\Tables\Columns\IconColumn::make('notes')
+            'notes' => IconColumn::make('notes')
                 ->label(__('noah-shop::noah-shop.order_notes'))
-                ->tooltip(fn($state) => $state)
+                ->tooltip(fn ($state) => $state)
                 ->width('1%')
                 ->alignCenter()
                 ->placeholder('-')
                 ->sortable()
                 ->icon('heroicon-o-document-text')
-                ->size(\Filament\Tables\Columns\IconColumn\IconColumnSize::Medium),
+                ->size(IconColumnSize::Medium),
             'sn' => ['alias' => 'order_sn', 'label' => 'order_sn'],
             'status' => ['label' => 'order_status', 'model' => 'order'],
-            'order_items' => \Filament\Tables\Columns\TextColumn::make('items_count')
+            'order_items' => TextColumn::make('items_count')
                 ->counts('items')
                 ->badge()
                 ->color('gray')
@@ -87,7 +85,6 @@ class BaseOrder extends Model
     }
 
     /** RELACTIONS */
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -135,7 +132,7 @@ class BaseOrder extends Model
     {
         return $query->whereNotIn('status', [
             OrderStatus::Initial,
-            OrderStatus::Cancelled
+            OrderStatus::Cancelled,
         ]);
     }
 
@@ -291,10 +288,9 @@ class BaseOrder extends Model
     /** EVENTS */
 
     /** OTHERS */
-
     protected static function newFactory()
     {
-        return \Sharenjoy\NoahShop\Database\Factories\OrderFactory::new();
+        return OrderFactory::new();
     }
 
     /**
@@ -302,10 +298,11 @@ class BaseOrder extends Model
      * 你如果覆寫這個 method，就能指定寫進 log 的是什麼類別
      * 所以不管外面操作的是 NewOrder、IssuedOrder，
      * log 記錄時都統一成 \Sharenjoy\NoahShop\Models\Order
+     *
      * @return string
      */
     public function getMorphClass()
     {
-        return \Sharenjoy\NoahShop\Models\Order::class; // 你想要寫入 activity_log 裡的 class 名稱
+        return class_basename(Order::class);
     }
 }

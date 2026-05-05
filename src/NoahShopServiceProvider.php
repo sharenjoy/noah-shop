@@ -3,8 +3,9 @@
 namespace Sharenjoy\NoahShop;
 
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Schedule;
-use Sharenjoy\NoahShop\Models;
 use RalphJSmit\Filament\Activitylog\Infolists\Components\Timeline;
 use Sharenjoy\NoahShop\Commands\GenerateCouponPromos;
 use Sharenjoy\NoahShop\Commands\UpdateObjectiveTargets;
@@ -42,7 +43,9 @@ class NoahShopServiceProvider extends PackageServiceProvider
 
     public function packageBooted()
     {
-        \Illuminate\Database\Eloquent\Model::unguard();
+        Model::unguard();
+
+        $this->enforceMorphMap();
 
         Schedule::command('noah-shop:update-objective-targets')->dailyAt('00:30');
         Schedule::command('noah-shop:generate-coupon-promos')->dailyAt('01:30');
@@ -69,5 +72,44 @@ class NoahShopServiceProvider extends PackageServiceProvider
                     'deleted' => 'heroicon-o-trash',
                 ]);
         });
+    }
+
+    protected function enforceMorphMap(): void
+    {
+        $models = [
+            Models\Address::class,
+            Models\Brand::class,
+            Models\CoinMutation::class,
+            Models\Country::class,
+            Models\Currency::class,
+            Models\Giftproduct::class,
+            Models\Invoice::class,
+            Models\InvoicePrice::class,
+            Models\Objective::class,
+            Models\Order::class,
+            Models\OrderItem::class,
+            Models\OrderShipment::class,
+            Models\Product::class,
+            Models\ProductSpecification::class,
+            Models\Promo::class,
+            Models\StockMutation::class,
+            Models\Survey\Answer::class,
+            Models\Survey\Entry::class,
+            Models\Survey\Question::class,
+            Models\Survey\Section::class,
+            Models\Survey\Survey::class,
+            Models\Transaction::class,
+            Models\User::class,
+            Models\UserCoupon::class,
+            Models\UserCouponStatus::class,
+            Models\UserLevel::class,
+            Models\UserLevelStatus::class,
+        ];
+
+        Relation::enforceMorphMap(
+            collect($models)
+                ->mapWithKeys(fn (string $model): array => [class_basename($model) => $model])
+                ->all()
+        );
     }
 }
