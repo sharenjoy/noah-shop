@@ -72,7 +72,6 @@ class ProductSpecification extends Model implements Sortable
             ],
             'right' => [
                 'img' => ['required' => true],
-                'album' => [],
                 'is_active' => ['required' => true],
                 'stock' => Section::make(__('noah-shop::noah-shop.stock'))
                     ->hidden(fn($record) => $record === null)
