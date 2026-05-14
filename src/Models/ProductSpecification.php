@@ -120,7 +120,7 @@ class ProductSpecification extends Model implements Sortable
     protected function spec(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => join(',', json_decode($attributes['spec_detail_name'], true))
+            get: fn($value, $attributes) => join(',', (array) json_decode($attributes['spec_detail_name'], true))
         );
     }
 
